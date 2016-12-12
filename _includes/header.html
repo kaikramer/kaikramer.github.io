@@ -1,0 +1,27 @@
+    <nav id="myNavbar" class="navbar navbar-default navbar-inverse" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">KeyStore Explorer</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li {% if page.url == "/news.html" %}class="active"{% endif %}><a href="news.html">News</a></li>
+					<li {% if page.url == "/features.html" %}class="active"{% endif %}><a href="features.html">Features</a></li>
+					<li {% if page.url == "/specifications.html" %}class="active"{% endif %}><a href="specifications.html">Specifications</a></li>
+					<li {% if page.url == "/screenshots.html" %}class="active"{% endif %}><a href="screenshots.html">Screenshots</a></li>
+					<li {% if page.url == "/releases.html" %}class="active"{% endif %}><a href="releases.html">Release Notes</a></li>
+					<li {% if page.url == "/downloads.html" %}class="active"{% endif %}><a href="downloads.html">Downloads</a></li>
+					<li {% if page.url == "/contribute.html" %}class="active"{% endif %}><a href="contribute.html">Contribute</a></li>
+					<li {% if page.url == "/license.html" %}class="active"{% endif %}><a href="license.html">License</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>

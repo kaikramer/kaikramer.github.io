@@ -1,0 +1,35 @@
+---
+layout: default
+title: KeyStore Explorer - JCE Unlimited Strength Jurisdiction Policy Download
+---
+
+    <table width="100%" height="100%" align="center">
+        <tr>
+            <td valign="middle" align="center">
+                <table cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+                    <tr>
+                        <td>
+                            Redirecting to www.oracle.com...
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+    function getUrlParameter(name) {
+        results = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)").exec(window.location.href);
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    $(document).ready(function() {
+        jreversion = getUrlParameter('jreversion');
+        if (jreversion == "1.6.0") {
+            window.location.href = "http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html";
+        } else if (jreversion == "1.7.0") {
+            window.location.href = "http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html";
+        } else if (jreversion == "1.8.0") {
+            window.location.href = "http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html";
+        }
+    });
+    </script>
