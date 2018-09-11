@@ -1,6 +1,4 @@
-gems:
-  - jekyll-redirect-from
-whitelist:
+plugins:
   - jekyll-redirect-from
 
 baseurl: "/"
