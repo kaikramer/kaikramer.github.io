@@ -5,134 +5,343 @@ redirect_from: /releases.php.html
 ---
 
 <div class="page-header">
-	<h1>Release 5.3.2 <small>19 Dec 2017</small></h1>
-</div>
-<div class="row">
-	<div class="col-md-6">
-		<p>
-		This release fixes the following bugs:
-		<ul>
-			<li>Fixed errors caused by some encryption algorithms for PKCS#8 private key files (reported by Osys)</li>
-			<li>Fixed bug in certificate extension viewer (unknown OID caused an error)</li>
-			<li>Fixed update check interval</li>
-			<li>Fixed default DN could not include empty RDNs</li>
-			<li>Fixed bug that caused an error when trying to access a PKCS#11 keystore under Java 9</li>
-		</ul>
-		</p>
-	</div>
-	<div class="col-md-6">
-	</div>
-</div>
-
-<div class="page-header">
-	<h1>Release 5.3.1 <small>01 Nov 2017</small></h1>
-</div>
-<div class="row">
-	<div class="col-md-6">
-		<p>
-		This release includes the following bug fixes and enhancements:
-		<ul>
-			<li>Java 9: Fixed ECDSA signature problem with Brainpool curves (reported by Davyd Santos).</li>
-			<li>Java 9: Unable to launch on MacOS (reported by Nicolas Henneaux, partial fix by Frank Dietrich).</li>
-			<li>Certificate Extension Viewer: When an extension contained multiple URIs, everything after the first URI was not displayed.</li>
-			<li>Mac OS version: Removed version number from application name (requested by Don Montalvo).</li>
-			<li>The included Bouncy Castle library has been updated to version 1.58.</li>
-		</ul>
-		</p>
-	</div>
-	<div class="col-md-6">
-	</div>
-</div>
-
-
-<div class="page-header">
-	<h1>Release 5.3.0 <small>01 Aug 2017</small></h1>
+	<h1>Release 5.4.0 <small>20 Sep 2018</small></h1>
 </div>
 <p>
-This release includes the following new features, enhancements and bugfixes:
+	This release includes the following new features, enhancements and bugfixes:
 </p>
 
-<h2 class="h3">New Flexible DN Chooser</h2>
+<h2 class="h3">Updated Preferences Dialog</h2>
 <div class="row">
 	<div class="col-md-6">
+		<p><b>Configurable Columns</b></p>
 		<p>
-		In older versions of KSE the dialog for entering the Distinguished Name (DN) had a strict scheme of 7 commonly
-		used name components (CN, OU, O, L, ST, C, E) in the commonly accepted order. It was not possible to use other
-		name components like for instance SerialNumber (SN). Also, it
-		was not possible to create a DN with more than one occurrence of the same attribute (especially OU is often used more
-		than once in a DN).
+
+			In previous versions KSE showed a fixed set of information for keystore entries:
+			Entry name, algorithm, key size, certificate expiration date and last modification date.
+			If you wanted to find for example a certificate with a specific issuer DN the you would have to open
+			every certificate in the keystore.
 		</p>
 		<p>
-		The new DN chooser dialog allows to add and remove RDNs (relative distinguished names) at any position by
-		clicking on the "+" and "-" buttons. For every RDN you can select one of the following name components:
-		<ul>
-			<li>Common Name (CN)</li>
-			<li>Organizational Unit (OU)</li>
-			<li>Organization (O)</li>
-			<li>Locality (L)</li>
-			<li>State (ST)</li>
-			<li>Country (C)</li>
-			<li>Email Address (E)</li>
-			<li>SerialNumber (SN)</li>
-			<li>GivenName (GN)</li>
-			<li>Surname (SURNAME)</li>
-			<li>DomainComponent (DC)</li>
-		</ul>
+			KSE 5.4.0 allows to freely configure the displayed columns. New fields are:
+			<ul>
+				<li>Curve (for EC keys)</li>
+				<li>Subject/Authority Key Identifier</li>
+				<li>Subject/Issuer DN</li>
+				<li>Subject/Issuer Organisation</li>
+				<li>Subject/Issuer CN</li>
+			</ul>
 		</p>
 		<p>
-		The new DN chooser dialog defaults to almost the same scheme as before (CN, OU, O, L, ST, C) with only
-		email address removed (according to RFC 5280 it belongs in the SubjectAlternativeName extension).
+			<img src="images/rel54_prefs_columns_ks.png" class="img" align="top" border="0" />
+		</p>
+		<p>
+			Also, certificates that are going to expire in the next n days can now be marked.
+		</p>
+		<p>This feature was contributed by Wim Ton.</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_prefs_columns.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<p><b>New Settings for UI Language and Automatic Update Checks</b></p>
+		<p>
+			In previous versions KSE always used the system language for its UI (if there was a translation for it).
+			Now you can explicitly choose between:
+			<ul>
+				<li>System Language</li>
+				<li>English</li>
+				<li>French</li>
+				<li>German</li>
+			</ul>
+		</p>
+		<p>
+			The automatic update check queries the KSE website for new releases of KSE and displays a notification if one was
+			found.
+			Starting with KSE 5.4.0 you can enable/disable automatic update checks and set an interval for them.
 		</p>
 	</div>
 	<div class="col-md-6">
 		<p>
-		<img src="images/rel53_dnchooser.png" class="img" align="top" border="0"/>
+			<img src="images/rel54_prefs_ui.png" class="img" align="top" border="0" />
 		</p>
 	</div>
 </div>
 
-<h2 class="h3">Flexible Validity Date Selection</h2>
+<h2 class="h3">Improved CSR Generation and Signing</h2>
 <div class="row">
 	<div class="col-md-6">
+		<p><b>Edit Subject When Generating a CSR</b></p>
 		<p>
-		The validity of a certificate generated by KSE used to start at the point of time when it was issued.
-		The certificate generation dialog only provided a setting for a validity period in years, months, weeks or days
-		and the validity end date was calculated by adding this period to the current date and time. Most of the times
-		this is sufficient. However, there are scenarios where it is necessary to create a certificate with a
-		<em>notBefore</em> that lies in the past or in the future.
+			In previous versions the subject name for a CSR was taken from the certificate of the selected key pair entry.
+			This might not always be what you want. Therefore the subject is now editable.
 		</p>
+		<p><b>Edit Subject When Signing a CSR</b></p>
 		<p>
-		KSE 5.3 allows to freely select both validity start ("<em>notBefore</em>") and validity end ("<em>notAfter</em>").
+			When signing a certificate for the public key from a CSR, the subject DN of the certificate is now freely editable.
+			The subject name from the CSR is only used as a suggestion.
 		</p>
+		<p><b>Transfer Extensions from CSR to Certificate</b></p>
 		<p>
-		The validity start defaults to the current date and time. Therefore the old behavior can now be achieved by
-		selecting the wanted amount of years/months/weeks/days like before and then clicking the apply button.
-		This sets the end date accordingly.
+			It is possible to add certificate extensions to a CSR. KSE can now transfer those extensions to the certificate.
+			Every single extension from the CSR can then be edited or removed and additional extensions can be added.
 		</p>
+		<p><b>View Additional Information About CSR</b></p>
 		<p>
-		This new feature is a contribution by Michele Mariotti.
+			The "Sign CSR" dialog can now show more details about the CSR. Namely:
+			<ul>
+				<li>The extensions included in the CSR.</li>
+				<li>An ASN.1 dump of the CSR.</li>
+				<li>The CSR in PEM format.</li>
+			</ul>
 		</p>
 	</div>
 	<div class="col-md-6">
 		<p>
-		<img src="images/rel53_validity.png" class="img" align="top" border="0"/>
+			<img src="images/rel54_sign_csr.png" class="img" align="top" border="0" />
 		</p>
 	</div>
 </div>
+
+<h2 class="h3">Pre-Defined Certificate Extension Templates</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			When generating a certificate it is a relatively cumbersome task to add all the extensions one by one.
+			With this new feature you can add a basic set of commonly used extensions for four different certificate types.
+		</p>
+		<p>The pre-defined extension templates are:</p>
+		<table class="table table-striped">
+			<tr>
+				<th>Template</th>
+				<th>Extensions</th>
+			</tr>
+			<tr class="plain_odd">
+				<td>Certificate Authority</td>
+				<td>
+					Authority Key Identifier <br />
+					Subject Key Identifier <br />
+					Basic Constraints: CA=true <br />
+					Key Usage: Certificate Sign, CRL Sign
+				</td>
+			</tr>
+			<tr class="plain_even">
+				<td>SSL Server</td>
+				<td>
+					Authority Key Identifier <br />
+					Subject Key Identifier <br />
+					Key Usage: Digital Signature, Key Encipherment <br />
+					Ext. Key Usage: Server Authentication
+				</td>
+			</tr>
+			<tr class="plain_odd">
+				<td>SSL Client</td>
+				<td>
+					Authority Key Identifier <br />
+					Subject Key Identifier <br />
+					Key Usage: Digital Signature, Key Encipherment <br />
+					Ext. Key Usage: Client Authentication
+				</td>
+			</tr>
+			<tr class="plain_even">
+				<td>Code Signing</td>
+				<td>
+					Authority Key Identifier <br />
+					Subject Key Identifier <br />
+					Key Usage: Digital Signature <br />
+					Ext. Key Usage: Code Signing
+				</td>
+			</tr>
+		</table>
+		<p>
+			After selecting an extension template, additional extensions can be added. The extensions from the template can be
+			edited or removed.
+		</p>
+		<p>
+			Note that these template sets are not necessarily complete, they are rather a starting point (which might be
+			sufficient for some purposes).
+			For example a SSL server certificate should also contain a Subject Alternative Name (SAN) extension with the site
+			name in it.
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_std_template.png" class="img" align="top" border="0" />
+		</p>
+		<p>
+			<img src="images/rel54_std_template_selection.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+
+<h2 class="h3">Export Button in Certificate Details Dialog</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			When opening a certificate with one of the following methods, it is now possible to save that certificate to the
+			file system:
+			<ul>
+				<li>Examine File (Ctrl-F)</li>
+				<li>Examine Clipboard (Ctrl-F)</li>
+				<li>Examine SSL (Ctrl-Alt-S)</li>
+			</ul>
+		</p>
+		<p>
+			This is for example useful for ...
+			<ul>
+				<li>downloading a HTTPS certificate</li>
+				<li>converting a certificate from PKCS#7/DER/PEM/SPC to PKCS#7/DER/PEM/SPC format</li>
+				<li>saving a certificate that you got as PEM in an email as a DER encoded file (after viewing it with "Examine
+					Clipboard")</li>
+			</ul>
+		</p>
+		<p>
+			This is a user contribution by Benny Prange.
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_export.png" class="img" align="top" border="0" />
+		</p>
+		<p>
+			<img src="images/rel54_export2.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+
+<h2 class="h3">Multi-User Option for Windows Installer</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			The windows installer has now the option to install KSE for all users instead of only for the current user.
+			This is especially useful for software deployment tools that run as system user.
+		</p>
+		<p>
+			This option is available in the installer GUI and as a command line parameter ("<code>/AllUsers</code>"). The default is
+			to install as current user.
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_multi-user.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+
+<h2 class="h3">BCFKS KeyStore Type</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			KSE has now support for Bouncy Castle's BCFKS keystore type. This includes the following operations:
+			<ul>
+				<li>Create a new BCFKS keystore</li>
+				<li>Open a BCFKS keystore</li>
+				<li>Change keystore type from/to BCFKS</li>
+			</ul>
+		</p>
+		<p>
+			This feature was contributed by Kable Wilmoth.
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_bcfks.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+
+<h2 class="h3">View Private/Public Keys as PEM</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			The "Private Key Details" and "Public Key Details" dialogs have now a new button "PEM", that shows the key in PEM
+			format.
+			It can be copied to system clipboard or saved to file system from there.
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_view_key_pem.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+
+<h2 class="h3">Change Value of Secret Key</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			The text field in the details dialog of secret (i.e. symmetric) key entries is now editable.
+			This allows to replace an existing symmetric key in a keystore with another one.
+		</p>
+		<p>
+			Allowed format:
+			<ul>
+				<li>Hex string ("2DF588C4280D...") </li>
+				<li>No "0x" allowed</li>
+				<li>Number of characters has to be even</li>
+				<li>Upper/lower case does not matter: "2DF588C4280D..." or "2df588c4280d..." works</li>
+				<li>Whitespace is ignored: "2D F5 88 C4 28 0D ..." works</li>
+				<li>Colons (":") are ignored: "2D:F5:88:C4:28:0D ..." works</li>
+			</ul>
+		</p>
+		<p>
+			There are no explicit checks of the key value itself (e.g. no length checks or checks for parity bits in TDES keys).
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_secret_edit.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+
+<h2 class="h3">Updated List of Time Stamping Authorities</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			KSE can generate and store a timestamp when signing a JAR file. You can either enter the URL of a <b>Time Stamping
+				Authority (TSA)</b> or select one from a list.
+			Those URLs can change from time to time, therefore the list has been updated.
+		</p>
+		<p>
+			The updated list of TSAs is:
+			<ul>
+				<li>http://timestamp.digicert.com</li>
+				<li>http://timestamp.globalsign.com/scripts/timstamp.dll</li>
+				<li>http://tsa.starfieldtech.com</li>
+				<li>http://time.certum.pl</li>
+				<li>http://sha256timestamp.ws.symantec.com/sha256/timestamp</li>
+				<li>http://timestamp.comodoca.com/?td=sha25</li>
+			</ul>
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<img src="images/rel54_tsa.png" class="img" align="top" border="0" />
+		</p>
+	</div>
+</div>
+
 
 <h2 class="h3">Other Enhancements</h2>
 <div class="row">
 	<div class="col-md-6">
 		<p>
 			<ul>
-				<li>Added support for QcStatements OID 0.4.0.1862.1.5 (PKI Disclosure Statements) and OID 0.4.0.1862.1.6 (Type) for eIDAS certificates in certificate viewer (contributed by Jordi Pinzón)</li>
-				<li>Windows installer: Silent installation now possible (contributed by shivan)</li>
-				<li>Maximum key length for DSA keys is now 2048 (contributed by Luís Câmara)</li>
-				<li>Export certificate chain in PEM format (requested by several users)</li>
-				<li>Improved file name suggestions for OpenSSL key export in order to avoid name collisions (suggested by Daniel Mota Leite)</li>
-				<li>Improved German translation (mostly by Frank Dietrich)</li>
-				<li>Compatible with Java 9 now</li>
-				<li>Updated included Bouncy Castle library to 1.57</li>
+				<li>Added UID to DN chooser (contributed by Ha Nguyen)</li>
+				<li>New shortcut "F2" for "rename entry"</li>
+				<li>Focus in alias/password/DNchooser dialog is now on text</li>
+				<li>Removed version from Windows installation directory name</li>
+				<li>Made field for key data in details dialogs bigger</li>
+				<li>Also accept private/public key files for examining/dnd</li>
+				<li>Export key pair and certificate chain in one file in PEM format</li>
+				<li>Windows launcher (kse.exe) compatible with Java 10/11 now</li>
+				<li>KSE packages for Linux distributions in rpm and deb format</li>
+				<li>Updated included Bouncy Castle library to 1.60</li>
 			</ul>
 		</p>
 	</div>
@@ -147,11 +356,17 @@ This release includes the following new features, enhancements and bugfixes:
 	<div class="col-md-6">
 		<p>
 			<ul>
-				<li>DNs with other components than CN, OU, O, L, ST, C, E and/or several occurences of the same
-					name attribute are now properly displayed (reported by Tom Van Oppens)</li>
-				<li>Fixed EC private key export (reported by Karsten Ohme)</li>
-				<li>Serial number not limited to 32bit anymore (reported by Luís Câmara)</li>
-				<li>Fixed NPE when exporting a private key in MSCAPI keystore with DnD (reported by dmatob)</li>
+				<li>Fixed error in German translation (contributed by Benny Prange)</li>
+				<li>Fixed permissions of kse.sh in zip file (contributed by Todd Kaufmann)</li>
+				<li>Fixed "Other Name: UPN=" shown twice in extension editor (reported by Sivasubramaniam S MediumOne)</li>
+				<li>Fixed illegal option error in kse.sh on macOS (reported by Venkateswara Venkatraman Prasanna)</li>
+				<li>Fixed export of EC private key to OpenSSL format (reported by bsmith-tridium-com)</li>
+				<li>Fixed missing leading zeroes in certificate fingerprint (reported by UltraChill)</li>
+				<li>Fixed NPE when QC statement type is unknown and no statement info</li>
+				<li>Fixed encoding of ECPrivateKey (RFC 5915) for OpenSSL format</li>
+				<li>Fixed problem when loading EC public key file in OpenSSL format</li>
+				<li>Fixed loading of OpenSSL format EC private key files</li>
+				<li>Fixed: An empty key password was set when dragging and dropping a key pair entry</li>
 			</ul>
 		</p>
 	</div>
@@ -165,11 +380,14 @@ This release includes the following new features, enhancements and bugfixes:
 <h1>Older Release Notes</h1>
 
 <p>
-<a href="release52.html">KeyStore Explorer Release 5.2.0, 5.2.1 and 5.2.2</a>
+	<a href="release53.html">KeyStore Explorer Release 5.3.0, 5.3.1 and 5.3.2</a>
 </p>
 <p>
-<a href="release51.html">KeyStore Explorer Release 5.1.0 and 5.1.1</a>
+	<a href="release52.html">KeyStore Explorer Release 5.2.0, 5.2.1 and 5.2.2</a>
 </p>
 <p>
-<a href="release50.html">KeyStore Explorer Release 5.0.0 and 5.0.1</a>
+	<a href="release51.html">KeyStore Explorer Release 5.1.0 and 5.1.1</a>
+</p>
+<p>
+	<a href="release50.html">KeyStore Explorer Release 5.0.0 and 5.0.1</a>
 </p>
