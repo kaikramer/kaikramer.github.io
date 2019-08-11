@@ -4,6 +4,41 @@ title: KeyStore Explorer - Release Notes
 redirect_from: /releases.php.html
 ---
 
+
+<div class="page-header">
+	<h1>Release 5.4.2 <small>11 Aug 2019</small></h1>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<p>
+			This release includes the following bug fixes and improvements:
+			<ul>
+				<li>Certificate generation: Editing of extensions fixed (contributed by JPinzon01)</li>
+				<li>Fixed date/time spinners and added shortcut buttons (contributed by Michele Mariotti)</li>
+				<li>Fixed typos in German translation (contributed by Markus Stein)</li>
+				<li>Fixed standard templates not working</li>
+				<li>Fixed typo in EtsiQcsQcPDS in ASN.1 viewer (reported by weddi-eddy)</li>
+				<li>Fixed issue in extension viewer when an unknown extension is encountered (reported by Daniel Mota Leite and hoogenpi)</li>
+				<li>Added OID for RFC 6962 "Certificate Transparency"</li>
+				<li>Allowing secret keys for keystore type PKCS#12 (requested by Laurent Vaills)</li>
+				<li>Fixed cancel on extension template dialog when deleting current extensions</li>
+				<li>Added release field to RPM (requested by gpavinteractiv)</li>
+				<li>EC keys in PEM format with "-----BEGIN EC PARAMETERS-----" are processed now (EC parameters are ignored though)</li>
+				<li>Fixed naming of ExtKeyUsage "OCSP Signing" (1.3.6.1.5.5.7.3.9)</li>
+				<li>Fixed german translation of OCSP signing</li>
+				<li>Fixed import of EC key in OpenSSL format not working (reported by mattes)</li>
+				<li>"Add certificate extensions to CSR" is now enabled by default</li>
+				<li>Updated included Bouncy Castle library to version 1.62</li>
+				<li>Updated appbundler to latest version (fixes problems with alternative Java runtimes under macOS)</li>
+				<li>Minimum required Java version for running KSE is now 1.8</li>
+			</ul>
+		</p>
+	</div>
+	<div class="col-md-6">
+	</div>
+</div>
+
+
 <div class="page-header">
 	<h1>Release 5.4.1 <small>27 Oct 2018</small></h1>
 </div>
