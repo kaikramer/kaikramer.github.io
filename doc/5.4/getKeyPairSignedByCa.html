@@ -1,0 +1,65 @@
+---
+layout: doc
+title: KSE Manual - Get a Key Pair Signed by a CA (Certificate Authority)
+---
+
+<h1>Get a Key Pair Signed by a CA (Certificate Authority)</h1>
+<hr />
+
+To get a Key Pair signed by a CA:
+
+<ol>
+  <li>First <a href="createNewKeyStore.html">create a new KeyStore</a>.</li>
+
+  <br />
+
+  <li>
+    Either
+    <a href="importKeyPairPkcs12.html">import an existing Key Pair</a> into the
+    KeyStore or <a href="generateKeyPair.html">generate a new Key Pair</a> in
+    the KeyStore.
+  </li>
+
+  <br />
+
+  <li>
+    Next <a href="generateCsr.html">generate a CSR</a> (Certificate Signing
+    Request) file from the Key Pair.
+  </li>
+
+  <br />
+
+  <li>
+    Send the CSR file to a CA for signing. Each CA has different procedures for
+    signing certificates and will charge a fee. Check the CA's web site for
+    details.
+  </li>
+
+  <br />
+
+  <li>
+    The CA will send back a CA Reply. This will most likely take the form of a
+    file with the extension p7r or cer.
+  </li>
+
+  <br />
+
+  <li>
+    <a href="importCaReply.html">Import the CA Reply</a> into the original Key
+    Pair.
+  </li>
+
+  <br />
+
+  <li>
+    The Key Pair has now been signed by the CA.
+    <a href="viewKeyPairCertificateChain.html"
+      >View the Key Pair's certificate chain</a
+    >. Your certificate, at the end of the chain, will contain the CA's details
+    in the issuer field.
+  </li>
+
+  <br />
+
+  <li>Finally <a href="saveKeyStore.html">save the KeyStore</a>.</li>
+</ol>

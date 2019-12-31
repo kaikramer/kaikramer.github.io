@@ -1,0 +1,49 @@
+---
+layout: doc
+title: KSE Manual - Generate a CSR
+---
+
+<h1>Generate a CSR</h1>
+<hr />
+
+To generate a CSR for a Key Pair:
+
+<ol>
+  <li>
+    Right-click on the Key Pair entry in the KeyStore Entries table. Select
+    <b>Generate CSR</b> from the pop-up menu.
+  </li>
+
+  <br />
+
+  <li>
+    If required the <b>Unlock Entry</b> dialog will be displayed. Enter the Key
+    Pair entry's password and press the <b>OK</b> button.
+  </li>
+
+  <br />
+
+  <li>
+    The <b>Generate CSR</b> dialog is displayed. Select a <b>Format</b> and
+    <b>Signature Algorithm</b> and enter a <b>Challenge</b>.
+  </li>
+
+  <br />
+
+  <li>
+    For PKCS#10 format you can optionally enter a <b>company name</b> (which
+    becomes an "unstructuredName" attribute in the request) and/or add the
+    <b>extensions</b> from the certificate to the request. The latter is useful
+    for SSL certificates with SubjectAlternativeName extensions.
+  </li>
+
+  <br />
+
+  <li>Use the <b>Browse</b> button to select a <b>CSR File</b>.</li>
+
+  <br />
+
+  <li>
+    Press the <b>OK</b> button to commence generation and produce the CSR.
+  </li>
+</ol>

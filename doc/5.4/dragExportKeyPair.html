@@ -1,0 +1,61 @@
+---
+layout: doc
+title: KSE Manual - Drag Export a Key Pair
+---
+
+<h1>Drag Export a Key Pair</h1>
+<hr />
+
+To drag export a Key Pair:
+
+<ol>
+  <li>
+    Ensure the Key Pair entry is <a href="unlockKeyPair.html">Unlocked</a>.
+  </li>
+
+  <br />
+
+  <li>
+    Select the Key Pair entry for dragging by pressing and holding the left
+    mouse button over it in the KeyStore entries table.
+  </li>
+
+  <br />
+
+  <li>
+    Use the mouse to drag the entry to the desired export location. For example:
+    the desktop, a folder or a text editor.
+  </li>
+
+  <br />
+
+  <li>Release the left mouse button over the export location.</li>
+
+  <br />
+
+  <li>
+    The entry will be exported. The export format used depends on the export
+    location:
+  </li>
+
+  <ul>
+    <li>
+      When exporting as a file the export format is <b>PKCS #12</b>. This is
+      applicable when the entry is dragged to the desktop or to a folder.
+    </li>
+
+    <br />
+
+    <li>
+      When exporting as text the export is in two parts. The private key is
+      exported as Encrypted <b>PKCS #8 PEM</b> and the certificate chain is
+      exported as <b>PKCS #7 PEM</b>. This is applicable when the entry is
+      dragged to an application that deals with text.
+    </li>
+  </ul>
+
+  <li>
+    Exports that are password protected inherit the password of the originating
+    Key Pair entry.
+  </li>
+</ol>

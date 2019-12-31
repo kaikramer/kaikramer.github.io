@@ -7,249 +7,268 @@ redirect_from: /contribute.php.html
 
 <div class="container">
 
-<div class="page-header">
-	<h1>Contributing to the KeyStore Explorer Project<a id="contributing"></a></h1>
+    <div class="page-header">
+        <h1>Contributing to the KeyStore Explorer Project<a></a></h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <p>KeyStore Explorer is an GPLv3 open source project. The source code (and documentation) is maintained
+                on <a href="https://github.com/kaikramer/keystore-explorer">GitHub</a>. While most of the work was done by Wayne Grant and
+                Kai Kramer, there have been also many <a href="#contributions">user contributions</a> to the project. </p>
+
+            <h2>How Can I Contribute?</h2>
+
+            <p>To make it easier for users who would like to get involved and help us improve KSE, this section contains suggestions and
+                guidelines on how to contribute.</p>
+
+            <h3>Reporting Bugs</h3>
+
+            <p>One of the best ways you can help us improve KSE is to let us know about any problems you find with it.</p>
+
+            <p>The KSE project uses <a href="https://github.com/kaikramer/keystore-explorer/issues">GitHub issues</a> to report and track issues.</p>
+
+            <p>Before you file an issue, search for it to see if anyone has already reported it. If you find your issue, check if you
+                can provide additional information, that might be useful to resolve the issue.</p>
+
+            <p>If no one has reported your bug, file the bug. Please describe the problem in detail. Be sure to include:
+                <ul>
+                    <li>Steps to reproduce the problem.</li>
+                    <li>What happened.</li>
+                    <li>What you think the correct behavior should be.</li>
+                    <li>Don't forget to mention which operating system and which version of Java and KSE you're using.</li>
+                </ul>
+            </p>
+
+            <p>In general, put as much information in bugs as you can. The more detail you provide, the more likely your issue is to be resolved.</p>
+
+            <p><b>Important:</b> Please be on the lookout for any follow-up questions we may have.</p>
+
+            <h3>Contributing to the Code</h3>
+
+            <p>If you want to contribute to the code, go to GitHub, fork the KSE repository, apply your changes and open a
+                pull request (PR). GitHub provides detailed information on the process on their website:
+            </p>
+            <p>
+                <a href="https://guides.github.com/activities/contributing-to-open-source/#contributing">GitHub - Contributing to a Project</a>
+            </p>
+
+            <p>In order to make the review of the PR a pleasant experience for contributors and reviewers and
+                to preserve the quality of the code base, it is important to:
+                <ul>
+                    <li>Make sure the code changes are well tested and that they cause no unwanted side effects.</li>
+                    <li>Verify that all existing and new tests pass.</li>
+                    <li>Check that the code formatting matches the existing code.</li>
+                    <li>Make sure no unrelated or unnecessary reformatting changes are included.</li>
+                </ul>
+            </p>
+
+            <p>If you intend to implement a non-trivial enhancement or a new feature, please make sure there is a
+                <a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a> that corresponds to your contribution
+                &ndash; either created by you or by somebody else. Announce in the issue that you intend to work on it
+                to make sure that the work is not done twice. This is also a good way to get some guidance on how
+                to beste tackle a problem or discuss implementation ideas. It is also necessary to sign a
+                Contributor License Agreement (CLA) in this case. </p>
+
+            <h3>Contributing to the Documentation or Website</h3>
+
+            <p>Good documentation is crucial for any kind of software. You can help improving the documentation:
+                <ul>
+                    <li>Please report missing, incorrect, or out-dated documentation as an
+                        <a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a>.</li>
+                    <li>Please open an <a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a>
+                        if you think the website could be improved.</li>
+                </ul>
+            </p>
+
+            <h3>Translations</h3>
+
+            <p>You are welcome to translate the KSE application or documentation into your own language. Just create a
+                <a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a> where you announce that you want to
+                work on translating KSE in a certain language.</p>
+
+            <h3>Spread the Word</h3>
+
+            <p>If you like KSE, why not recommend it to your friends, colleagues or blog followers?
+                Mention it in your blog, on twitter, in forums, on StackOverflow...</p>
+
+            <h2>List of Contributions</h2>
+
+            <p>We would like to thank all contributors for their commitment and support.</p>
+
+            <p>Those who contributed code, documentation or translations are listed by name below.</p>
+
+            <h3>Code Contributions</h3>
+
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th class="plain">Contributor</th>
+                        <th class="plain">Version</th>
+                        <th class="plain">Contribution</th>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_even" align="left">David Harper</td>
+                        <td class="plain_even" align="left">5.1.1</td>
+                        <td class="plain_even" align="left">Fixed Linux start script, it works now if called from outside the KSE folder.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Uri Blumenthal</td>
+                        <td class="plain_odd" align="left">5.1.1</td>
+                        <td class="plain_odd" align="left">Fixed import of EC keys.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_even" align="left">Chris Kistner</td>
+                        <td class="plain_even" align="left">5.2.0</td>
+                        <td class="plain_even" align="left">Support viewing of non-CRT RSA private key fields.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Chris Ridd</td>
+                        <td class="plain_odd" align="left">5.2.0</td>
+                        <td class="plain_odd" align="left">Added IPv6 addresses for SubjAltName extension.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_even" align="left">Davy Defaud</td>
+                        <td class="plain_even" align="left">5.2.0</td>
+                        <td class="plain_even" align="left">Added RPM packaging for Mageia.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Kevin Herron</td>
+                        <td class="plain_odd" align="left">5.2.0</td>
+                        <td class="plain_odd" align="left">Installing the JCE Unlimited Crypto Strength policy is no longer necessary.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_even" align="left">Uri Blumenthal</td>
+                        <td class="plain_even" align="left">5.2.0</td>
+                        <td class="plain_even" align="left">Added several ExtendedKeyUsage (AdobePDFSigning, ...) types.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Filip Jirsák</td>
+                        <td class="plain_odd" align="left">5.2.0</td>
+                        <td class="plain_odd" align="left">Fixed AuthorityKeyIdentifier extension.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Josef Ludvicek</td>
+                        <td class="plain_odd" align="left">5.2.1</td>
+                        <td class="plain_odd" align="left">Fixed a problem with kse.sh when it's executed through a symlink.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Peter Breur</td>
+                        <td class="plain_odd" align="left">5.2.2</td>
+                        <td class="plain_odd" align="left">Fixed authorityCertIssuer in AKI extension.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Andreas Schwier</td>
+                        <td class="plain_odd" align="left">5.2.2</td>
+                        <td class="plain_odd" align="left">Ignoring unsupported certificate types now.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Andreas Schwier</td>
+                        <td class="plain_odd" align="left">5.2.2</td>
+                        <td class="plain_odd" align="left">Fixed problem when generating EC keys with crypto devices.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Michele Mariotti</td>
+                        <td class="plain_odd" align="left">5.3.0</td>
+                        <td class="plain_odd" align="left">Added flexible validity date selection.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Luís Câmara</td>
+                        <td class="plain_odd" align="left">5.3.0</td>
+                        <td class="plain_odd" align="left">Changed maximum key length for DSA keys to 2048.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Jordi Pinzón</td>
+                        <td class="plain_odd" align="left">5.3.0</td>
+                        <td class="plain_odd" align="left">Added QcStatement types for eIDAS certificates.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Wim Ton</td>
+                        <td class="plain_odd" align="left">5.4.0</td>
+                        <td class="plain_odd" align="left">Configurable columns on main display.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Benny Prange</td>
+                        <td class="plain_odd" align="left">5.4.0</td>
+                        <td class="plain_odd" align="left">Added certificate export in certificate details view.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Kable Wilmoth</td>
+                        <td class="plain_odd" align="left">5.4.0</td>
+                        <td class="plain_odd" align="left">Added support for Bouncy Castle's BCFKS keystore type.</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Jordi Pinzón</td>
+                        <td class="plain_odd" align="left">5.4.2</td>
+                        <td class="plain_odd" align="left">Certificate generation: Editing of extensions fixed</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_odd" align="left">Michele Mariotti</td>
+                        <td class="plain_odd" align="left">5.4.2</td>
+                        <td class="plain_odd" align="left">Fixed date/time spinners and added shortcut buttons.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Documentation</h3>
+
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th class="plain">Contributor</th>
+                        <th class="plain">Contribution</th>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_even" align="left"></td>
+                        <td class="plain_even" align="left"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Translations</h3>
+
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th class="plain">Language</th>
+                        <th class="plain">Contributor</th>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_even" align="left">French</td>
+                        <td class="plain_even" align="left">Davy Defaud</td>
+                    </tr>
+                    <tr valign="middle">
+                        <td class="plain_even" align="left">German</td>
+                        <td class="plain_even" align="left">Frank Dietrich</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-4" role="complementary">
+            <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+            <!-- <nav> -->
+            <!--     <ul class="nav navbar-nav"> -->
+            <!--         <li><a class="nav-link" href="#how">How Can I Contribute?</a> -->
+            <!--             <ul class="nav navbar-nav"> -->
+            <!--                 <li><a class="nav-link" href="#reporting-bugs">Reporting Bugs</a></li> -->
+            <!--                 <li><a class="nav-link" href="#code">Contributing to the Code</a></li> -->
+            <!--                 <li><a class="nav-link" href="#documentation-or-website">Contributing to the Documentation or Website</a></li> -->
+            <!--                 <li><a class="nav-link" href="#translations-1">Translations</a></li> -->
+            <!--                 <li><a class="nav-link" href="#spread-the-word">Spread the Word</a></li> -->
+            <!--             </ul> -->
+            <!--         </li> -->
+            <!--         <li><a class="nav-link" href="#contributions">List of Contributions</a> -->
+            <!--             <ul class="nav navbar-nav"> -->
+            <!--                 <li><a class="nav-link" href="#code-contributions">Code Contributions</a></li> -->
+            <!--                 <li><a class="nav-link" href="#documentation">Documentation</a></li> -->
+            <!--                 <li><a class="nav-link" href="#translations-2">Translations</a></li> -->
+            <!--             </ul> -->
+            <!--         </li> -->
+            <!--     </ul> -->
+            <!-- </nav> -->
+        </div>
+    </div>
 </div>
 
-<div class="col-md-8">
-	<p>KeyStore Explorer is an GPLv3 open source project. The source code (and documentation) is maintained
-	on <a href="https://github.com/kaikramer/keystore-explorer">GitHub</a>. While most of the work was done by Wayne Grant and
-	Kai Kramer, there have been also many <a href="#contributions">user contributions</a> to the project. </p>
-
-	<h2>
-	How Can I Contribute?<a id="how"></a>
-	</h2>
-
-	<p>To make it easier for users who would like to get involved and help us improve KSE, this section contains suggestions and
-		guidelines on how to contribute.</p>
-
-	<h3>Reporting Bugs<a id="reportbugs"></a></h3>
-
-	<p>One of the best ways you can help us improve KSE is to let us know about any problems you find with it.</p>
-
-	<p>The KSE project uses <a href="https://github.com/kaikramer/keystore-explorer/issues">GitHub issues</a> to report and track issues.</p>
-
-	<p>Before you file an issue, search for it to see if anyone has already reported it. If you find your issue, check if you
-		can provide additional information, that might be useful to resolve the issue.</p>
-
-	<p>If no one has reported your bug, file the bug. Please describe the problem in detail. Be sure to include:
-		<ul>
-			<li>Steps to reproduce the problem.</li>
-			<li>What happened.</li>
-			<li>What you think the correct behavior should be.</li>
-			<li>Don't forget to mention which operating system and which version of Java and KSE you're using.</li>
-		</ul>
-	</p>
-
-	<p>In general, put as much information in bugs as you can. The more detail you provide, the more likely your issue is to be resolved.</p>
-
-	<p><b>Important:</b> Please be on the lookout for any follow-up questions we may have.</p>
-
-	<h3>Contributing to the Code<a id="code"></a></h3>
-
-	<p>If you want to contribute to the code, go to GitHub, fork the KSE repository, apply your changes and open a
-	pull request (PR). GitHub provides detailed information on the process on their website:
-	</p>
-	<p>
-	<a href="https://guides.github.com/activities/contributing-to-open-source/#contributing">GitHub - Contributing to a Project</a>
-	</p>
-
-	<p>In order to make the review of the PR a pleasant experience for contributors and reviewers and
-		to preserve the quality of the code base, it is important to:
-		<ul>
-			<li>Make sure the code changes are well tested and that they cause no unwanted side effects.</li>
-			<li>Verify that all existing and new tests pass.</li>
-			<li>Check that the code formatting matches the existing code.</li>
-			<li>Make sure no unrelated or unnecessary reformatting changes are included.</li>
-		</ul>
-	</p>
-
-	<p>If you intend to implement a non-trivial enhancement or a new feature, please make sure there is a
-		<a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a> that corresponds to your contribution
-		&ndash; either created by you or by somebody else. Announce in the issue that you intend to work on it
-		to make sure that the work is not done twice. This is also a good way to get some guidance on how
-	 	to beste tackle a problem or discuss implementation ideas. It is also necessary to sign a
-		Contributor License Agreement (CLA) in this case. </p>
-
-	<h3>Contributing to the Documentation or Website<a id="documentation"></a></h3>
-
-	<p>Good documentation is crucial for any kind of software. You can help improving the documentation:
-		<ul>
-			<li>Please report missing, incorrect, or out-dated documentation as an
-			<a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a>.</li>
-			<li>Please open an <a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a>
-				if you think the website could be improved.</li>
-		</ul>
-    </p>
-
-	<h3>Translations<a id="translations"></a></h3>
-
-	<p>You are welcome to translate the KSE application or documentation into your own language. Just create a
-	<a href="https://github.com/kaikramer/keystore-explorer/issues">issue</a> where you announce that you want to
- 	work on translating KSE in a certain language.</p>
-
-	<h3>Spread the Word<a id="spreadtheword"></a></h3>
-
-	<p>If you like KSE, why not recommend it to your friends, colleagues or blog followers?
-		Mention it in your blog, on twitter, in forums, on StackOverflow...</p>
-
-	<h2>
-	List of Contributions<a id="contributions"></a>
-	</h2>
-
-	<p>We would like to thank all contributors for their commitment and support.</p>
-
-	<p>Those who contributed code, documentation or translations are listed by name below.</p>
-
-	<h3>Code Contributions<a id="codecontributions"></a></h3>
-
-	<table class="table table-striped">
-		<tbody>
-		<tr>
-			<th class="plain">Contributor</th>
-			<th class="plain">Version</th>
-			<th class="plain">Contribution</th>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_even" align="left">David Harper</td>
-			<td class="plain_even" align="left">5.1.1</td>
-			<td class="plain_even" align="left">Fixed Linux start script, it works now if called from outside the KSE folder.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Uri Blumenthal</td>
-			<td class="plain_odd" align="left">5.1.1</td>
-			<td class="plain_odd" align="left">Fixed import of EC keys.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_even" align="left">Chris Kistner</td>
-			<td class="plain_even" align="left">5.2.0</td>
-			<td class="plain_even" align="left">Support viewing of non-CRT RSA private key fields.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Chris Ridd</td>
-			<td class="plain_odd" align="left">5.2.0</td>
-			<td class="plain_odd" align="left">Added IPv6 addresses for SubjAltName extension.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_even" align="left">Davy Defaud</td>
-			<td class="plain_even" align="left">5.2.0</td>
-			<td class="plain_even" align="left">Added RPM packaging for Mageia.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Kevin Herron</td>
-			<td class="plain_odd" align="left">5.2.0</td>
-			<td class="plain_odd" align="left">Installing the JCE Unlimited Crypto Strength policy is no longer necessary.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_even" align="left">Uri Blumenthal</td>
-			<td class="plain_even" align="left">5.2.0</td>
-			<td class="plain_even" align="left">Added several ExtendedKeyUsage (AdobePDFSigning, ...) types.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Filip Jirsák</td>
-			<td class="plain_odd" align="left">5.2.0</td>
-			<td class="plain_odd" align="left">Fixed AuthorityKeyIdentifier extension.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Josef Ludvicek</td>
-			<td class="plain_odd" align="left">5.2.1</td>
-			<td class="plain_odd" align="left">Fixed a problem with kse.sh when it's executed through a symlink.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Peter Breur</td>
-			<td class="plain_odd" align="left">5.2.2</td>
-			<td class="plain_odd" align="left">Fixed authorityCertIssuer in AKI extension.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Andreas Schwier</td>
-			<td class="plain_odd" align="left">5.2.2</td>
-			<td class="plain_odd" align="left">Ignoring unsupported certificate types now.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Andreas Schwier</td>
-			<td class="plain_odd" align="left">5.2.2</td>
-			<td class="plain_odd" align="left">Fixed problem when generating EC keys with crypto devices.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Michele Mariotti</td>
-			<td class="plain_odd" align="left">5.3.0</td>
-			<td class="plain_odd" align="left">Added flexible validity date selection.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Luís Câmara</td>
-			<td class="plain_odd" align="left">5.3.0</td>
-			<td class="plain_odd" align="left">Changed maximum key length for DSA keys to 2048.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Jordi Pinzón</td>
-			<td class="plain_odd" align="left">5.3.0</td>
-			<td class="plain_odd" align="left">Added QcStatement types for eIDAS certificates.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Wim Ton</td>
-			<td class="plain_odd" align="left">5.4.0</td>
-			<td class="plain_odd" align="left">Configurable columns on main display.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Benny Prange</td>
-			<td class="plain_odd" align="left">5.4.0</td>
-			<td class="plain_odd" align="left">Added certificate export in certificate details view.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Kable Wilmoth</td>
-			<td class="plain_odd" align="left">5.4.0</td>
-			<td class="plain_odd" align="left">Added support for Bouncy Castle's BCFKS keystore type.</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Jordi Pinzón</td>
-			<td class="plain_odd" align="left">5.4.2</td>
-			<td class="plain_odd" align="left">Certificate generation: Editing of extensions fixed</td>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_odd" align="left">Michele Mariotti</td>
-			<td class="plain_odd" align="left">5.4.2</td>
-			<td class="plain_odd" align="left">Fixed date/time spinners and added shortcut buttons.</td>
-		</tr>
-		</tbody>
-	</table>
-
-	<h3>Documentation<a id="documentationcontributions"></a></h3>
-
-	<table class="table table-striped">
-		<tbody>
-		<tr>
-			<th class="plain">Contributor</th>
-			<th class="plain">Contribution</th>
-		</tr>
-		<tr valign="middle">
-			<td class="plain_even" align="left"></td>
-			<td class="plain_even" align="left"></td>
-		</tr>
-		</tbody>
-	</table>
-
-	<h3>Translations<a id="translationcontributions"></a></h3>
-
-	<table class="table table-striped">
-		<tbody>
-		<tr>
-			<th class="plain">Language</th>
-			<th class="plain">Contributor</th>
-		</tr>
-        <tr valign="middle">
-			<td class="plain_even" align="left">French</td>
-			<td class="plain_even" align="left">Davy Defaud</td>
-		</tr>
-        <tr valign="middle">
-			<td class="plain_even" align="left">German</td>
-			<td class="plain_even" align="left">Frank Dietrich</td>
-		</tr>
-		</tbody>
-	</table>
-</div>
-
-<div class="col-md-4" role="complementary">
-	<nav id="toc" data-spy="affix" data-toggle="toc"></nav>
-</div>
-
-</div>
