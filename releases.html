@@ -6,6 +6,39 @@ redirect_from: /releases.php.html
 
 
 <div class="page-header">
+    <h1>Release 5.4.3 <small class="text-muted">8 Mar 2020</small></h1>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            This release includes the following bug fixes and improvements:
+            <ul>
+                <li>Added support for custom extended key usages (contributed by Jordi Pinzón García)</li>
+                <li>Added TSL (Trust-service Status Lists) signing extended key usage, OID "0.4.0.2231.3.0" (contributed by Vakhtang Laluashvili)</li>
+                <li>After a keystore entry was deleted, the next entry is selected now. This makes deleteting several entries easier.</li>
+                <li>JKS and JCEKS keystores can now be opened without entering the password, just press enter in the password dialog.</li>
+                <ul>
+                    <li>This is only possible because the JKS/JCEKS keystore password (in contrast to the passwords of individual key entries) is just an integrity protection.</li>
+                    <li>Key entries are of course still locked.</li>
+                    <li>The keystore is handled by KSE as if no keystore password was set yet. If you want to save the keystore after a modification, you have to set a new keystore password.</li>
+                </ul>
+                <li>New Look&amp;Feel for macOS: VAqua (contributed by Lothar Haeger)</li>
+                <li>New Look&amp;Feel for all platforms: FlatLaf (see screenshot to the right)</li>
+                <li>Removed Look&amp;Feel Darcula and JGoodies</li>
+                <li>User manual is now part of the KSE website and was removed from the application.</li>
+                <li>Fixed some smaller problems with German translation</li>
+                <li>Updated Bouncy Castle library to 1.64</li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/rel543_custom_ekus.png" class="img" align="top" border="0" />
+        </p>
+    </div>
+</div>
+
+<div class="page-header">
     <h1>Release 5.4.2 <small class="text-muted">11 Aug 2019</small></h1>
 </div>
 <div class="row">
