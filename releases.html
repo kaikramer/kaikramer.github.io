@@ -6,6 +6,58 @@ redirect_from: /releases.php.html
 
 
 <div class="page-header">
+    <h1>Release 5.4.4 <small class="text-muted">4 Oct 2020</small></h1>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            This release includes the following improvements and bug fixes:
+            <ul>
+                <li>Certificate serial numbers can now be entered in hexadecimal format as well (contributed by Stephen Tomkinson). Hex numbers are detected ...</li>
+                <ul>
+                    <li>if the input contains the letters a-f or A-F, for example "1a2b3c4d5e6f" or "1A2B3C4D5E6F" (decimal: 28.772.997.619.311)</li>
+                    <li>or if the input starts with "0x", for example "0x12345678" would be interpreted as decimal 305.419.896 </li>
+                </ul>
+                <li>Additional button in "Certificate Extensions" window to save those extensions as a template (contributed by Stephen Tomkinson)</li>
+                <li>KSE allows now to select multiple entries by pressing SHIFT or CTRL and perform the following operations on all selected entries (contributed by Christoph Kaser):
+                    <ul>
+                        <li>cut</li>
+                        <li>copy</li>
+                        <li>paste</li>
+                        <li>delete</li>
+                    </ul>
+                    Note that you have to use the "Edit" menu, the toolbar icons or the keyboard shortcuts (Ctrl-x, Ctrl-c, etc.) to select the operation. 
+                    The right click menu cancels the selection of multiple entries.
+                </li>
+                <li>Fixed AKI/SKI extensions and Issuer/Subject Organisation not shown in table view (reported by Michael Karnerfors)</li>
+                <li>Fixed AKI/SKI extensions not being updated when added from a template or CSR (reported by Michael Karnerfors) </li>
+                <li>Fixed an error when inspecting a SAN extension that contains a User Principal Name (reported by e4711s)</li>
+                <li>Key Usage extension is now correctly marked as critical in all default extension templates (reported by James K Polk)</li>
+                <li>macOS: Fixed an incompatibility with VAqua Look&amp;Feel that caused a save dialog to be shown instead of an open dialog (reported by Filipe Forneck, fix contributed by Gary Bartlett)</li>
+                <li>macOS: VAqua Look&amp;Feel is no longer the default</li>
+                <li>macOS: The application bundle now contains a custom Java runtime. This fixes issues with detection of JRE installations and notarization.</li>
+                <li>SHA256 is now used in timestamp requests (instead of SHA1)</li>
+                <li>PKCS#12 is now the default when creating a new keystore. This reflects the transition from JKS to PKCS#12 as the default keystore in Java 9
+                    (<a href="http://openjdk.java.net/jeps/229" title="JEP 229">JEP 229</a>).</li>
+                <li>Updated Bouncy Castle library to version 1.66</li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/rel544_GenerateKeyPairCertificate.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel544_CertificateExtensions1.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel544_CertificateExtensions2.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel544_multi-selection.png" class="img" align="top" border="0" />
+        </p>
+    </div>
+</div>
+
+<div class="page-header">
     <h1>Release 5.4.3 <small class="text-muted">8 Mar 2020</small></h1>
 </div>
 <div class="row">
@@ -33,7 +85,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel543_custom_ekus.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel543_custom_ekus.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -122,7 +174,7 @@ redirect_from: /releases.php.html
             </ul>
         </p>
         <p>
-            <img src="images/rel54_prefs_columns_ks.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_prefs_columns_ks.png" class="img" align="top" border="0" />
         </p>
         <p>
             Also, certificates that are going to expire in the next n days can now be marked.
@@ -131,7 +183,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_prefs_columns.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_prefs_columns.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -156,7 +208,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_prefs_ui.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_prefs_ui.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -191,7 +243,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_sign_csr.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_sign_csr.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -259,10 +311,10 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_std_template.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_std_template.png" class="img" align="top" border="0" />
         </p>
         <p>
-            <img src="images/rel54_std_template_selection.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_std_template_selection.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -294,10 +346,10 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_export.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_export.png" class="img" align="top" border="0" />
         </p>
         <p>
-            <img src="images/rel54_export2.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_export2.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -316,7 +368,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_multi-user.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_multi-user.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -338,7 +390,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_bcfks.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_bcfks.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -354,7 +406,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_view_key_pem.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_view_key_pem.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -383,7 +435,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_secret_edit.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_secret_edit.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
@@ -410,7 +462,7 @@ redirect_from: /releases.php.html
     </div>
     <div class="col-md-6">
         <p>
-            <img src="images/rel54_tsa.png" class="img" align="top" border="0" />
+            <img src="images/releases/rel54_tsa.png" class="img" align="top" border="0" />
         </p>
     </div>
 </div>
