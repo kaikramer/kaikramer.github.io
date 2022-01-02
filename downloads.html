@@ -22,39 +22,83 @@ redirect_from: /downloads.php.html
     <tr class="plain_odd">
         <td>Windows</td>
         <td><a href="https://github.com/kaikramer/keystore-explorer/releases/download/v5.5.0/kse-550-setup.exe">kse-550-setup.exe</a></td>
-        <td>Windows installer (InnoSetup), all possible command line parameters (e.g. for silent or non-administrative install) are listed here: 
+        <td>
+            <p>
+            Windows installer (InnoSetup), all possible command line parameters (e.g. for silent or non-administrative install) are listed here: 
             <a href="https://jrsoftware.org/ishelp/index.php?topic=setupcmdline">Setup Command Line Parameters</a>. Includes a custom Java runtime.
+            </p>
+            SHA-256: <code>3e6db6d082d2d46c29f9ebf50cf96355b4b7ce5f60432e0df9d5fa436a56c803</code>
         </td>
     </tr>
     <tr class="plain_odd">
         <td>Windows</td>
         <td><a href="https://github.com/kaikramer/keystore-explorer/releases/download/v5.5.0/kse-550-setup-no-jre.exe">kse-550-setup-no-jre.exe</a></td>
-        <td>Same as above, but you have to download and install a Java runtime environment (minimum is Java 8) yourself.
+        <td>
+            <p>
+            Same as above, but you have to download and install a Java runtime environment (minimum is Java 8) yourself.
+            </p>
+            SHA-256: <code>f5087ec72bb32e790aaa42380c8b344297e8d02d5787952108a1a0f91ef50b8e</code>
         </td>
     </tr>
     <tr class="plain_even">
         <td>Mac</td>
         <td><a href="https://github.com/kaikramer/keystore-explorer/releases/download/v5.5.0/kse-550.dmg">kse-550.dmg</a></td>
-        <td>Double-click the disk image to mount it, then drag KeyStore Explorer to the Applications folder. The application bundle contains a custom Java runtime.</td>
+        <td>
+            <p>
+            Double-click the disk image to mount it, then drag KeyStore Explorer to the Applications folder. The application bundle contains a custom Java runtime.
+            </p>
+            SHA-256: <code>ec50f0e15a2c3fa3077285f928cbfcf98a0dd5fdd3646b7e4bf1e79f8d0e2153</code>
+        </td>
     </tr>
     <tr class="plain_odd">
         <td>Linux</td>
         <td><a href="https://github.com/kaikramer/keystore-explorer/releases/download/v5.5.0/kse_5.5.0_all.deb">kse_5.5.0_all.deb</a></td>
-        <td>DEB for Ubuntu/Debian/Mint etc.</td>
+        <td>
+            <p>
+            DEB for Ubuntu/Debian/Mint etc.
+            </p>
+            SHA-256: <code>e295c351cc72ea02abf44c4aa97d404045be6be78f7b0d837ef57613f52d7c45</code>
+        </td>
     </tr>
     <tr class="plain_even">
         <td>Linux</td>
         <td><a href="https://github.com/kaikramer/keystore-explorer/releases/download/v5.5.0/kse-5.5.0-1.noarch.rpm">kse-5.5.0-1.noarch.rpm</a></td>
-        <td>RPM for CentOS/RHEL/Fedora etc.</td>
+        <td>
+            <p>
+            RPM for CentOS/RHEL/Fedora etc.
+            </p>
+            SHA-256: <code>5cec6792a0c154b0ed545b13a9f7f59fe39e119c396a29e093a0af7dd8f6dc38</code>
+        </td>
     </tr>
     <tr class="plain_odd">
         <td>All</td>
         <td><a href="https://github.com/kaikramer/keystore-explorer/releases/download/v5.5.0/kse-550.zip">kse-550.zip</a></td>
-        <td>ZIP with <code>kse.exe</code> for Windows and <code>kse.sh</code> for Linux/macOS, see included <code>readme.txt</code> for more infos. 
+        <td>
+            <p>
+            ZIP with <code>kse.exe</code> for Windows and <code>kse.sh</code> for Linux/macOS, see included <code>readme.txt</code> for more infos. 
             Requires a Java runtime environment (minimum is Java 8).
+            </p>
+            SHA-256: <code>c46125d92ebf7178d01536c5a121c5a5b50bea5c681ab7a1f3d9561f143edd1e</code>
         </td>
     </tr>
 </table>
+
+<h2 class="h3">Malware Warnings in Chrome and Firefox</h2>
+<p>
+    The Google Safe Browsing API that is used in Chrome, Google Mail, Google Drive and Firefox currently detects some kind of malware in <i>kse-550-setup-no-jre.exe</i> and <i>kse-550.zip</i>.
+</p>
+<p>
+    The results on VirusTotal (an aggregator for antivirus products and scan engines) show that both files are found to be clean by almost 70 different AV vendors:
+</p>
+<p>
+    <a href="https://www.virustotal.com/gui/file/f5087ec72bb32e790aaa42380c8b344297e8d02d5787952108a1a0f91ef50b8e">VirusTotal scan results for kse-550-setup-no-jre.exe</a>
+    <br>
+    <a href="https://www.virustotal.com/gui/file/c46125d92ebf7178d01536c5a121c5a5b50bea5c681ab7a1f3d9561f143edd1e">VirusTotal scan results for kse-550.zip</a>
+</p>
+<p>So these are clearly "false positives". False positive detections are completely normal and happen after almost every new release of KSE.
+    Normally they are fixed quickly by contacting the AV vendor. With Google it is unfortunately not so easy and it is difficult to say how long it will
+    take until this problem is finally resolved.
+</p>
 
 <h2 class="h3">Older Releases and Source Code</h2>
 <p>
