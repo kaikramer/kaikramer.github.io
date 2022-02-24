@@ -170,8 +170,9 @@ title: KeyStore Explorer - Specifications
       <h2 id="certificates_and_crls" class="h3">Certificates and CRLs</h2>
 
       <p>
-        KeyStore Explorer supports Version 1 and Version 3 X.509 certificates as well as CRLs. In addition for Version 3 Certificates and CRLs it supports the
-        display of a wide range of extensions.
+        KeyStore Explorer supports Version 1 and Version 3 X.509 certificates
+        as well as CRLs. In addition for Version 3 Certificates and CRLs it
+        supports the display of a wide range of extensions.
       </p>
 
       <h2 id="certificate_signing_requests" class="h3">Certificate Signing Requests (CSR)</h2>
@@ -200,8 +201,10 @@ title: KeyStore Explorer - Specifications
       <h2 id="x509_extensions" class="h3">X.509 Extensions</h2>
 
       <p>
-        KeyStore Explorer supports the display of the full set of extensions specified in RFC 3280 (Certificate and CRL Profile) and the Netscape Certificate
-        Extensions among others. In addition most of the certificate extensions are available for addition to generated certificates and signed CSRs.
+        KeyStore Explorer supports the display of the full set of extensions
+        specified in RFC 5280 (Certificate and CRL Profile). In addition most
+        of the certificate extensions are available for addition to generated
+        certificates and signed CSRs.
       </p>
 
       <table class="table table-striped">
@@ -276,7 +279,7 @@ title: KeyStore Explorer - Specifications
             <td class="plain_even" align="left">CRL Number</td>
             <td class="plain_even" align="left">2.5.29.20</td>
             <td class="plain_even" align="center">X</td>
-            <td class="plain_even" align="center">N/A</td>
+            <td class="plain_even" align="center">X</td>
           </tr>
           <tr valign="middle">
             <td class="plain_odd" align="left">Reason Code</td>
@@ -324,7 +327,7 @@ title: KeyStore Explorer - Specifications
             <td class="plain_even" align="left">CRL Distribution Points</td>
             <td class="plain_even" align="left">2.5.29.31</td>
             <td class="plain_even" align="center">X</td>
-            <td class="plain_even" align="center"></td>
+            <td class="plain_even" align="center">X</td>
           </tr>
           <tr valign="middle">
             <td class="plain_odd" align="left">Certificate Policies</td>
@@ -365,54 +368,6 @@ title: KeyStore Explorer - Specifications
           <tr valign="middle">
             <td class="plain_odd" align="left">Inhibit Any Policy</td>
             <td class="plain_odd" align="left">2.5.29.54</td>
-            <td class="plain_odd" align="center">X</td>
-            <td class="plain_odd" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_even" align="left">Netscape Certificate Type</td>
-            <td class="plain_even" align="left">2.16.840.1.113730.1.1</td>
-            <td class="plain_even" align="center">X</td>
-            <td class="plain_even" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_odd" align="left">Netscape Base URL</td>
-            <td class="plain_odd" align="left">2.16.840.1.113730.1.2</td>
-            <td class="plain_odd" align="center">X</td>
-            <td class="plain_odd" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_even" align="left">Netscape Revocation URL</td>
-            <td class="plain_even" align="left">2.16.840.1.113730.1.3</td>
-            <td class="plain_even" align="center">X</td>
-            <td class="plain_even" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_odd" align="left">Netscape CA Revocation URL</td>
-            <td class="plain_odd" align="left">2.16.840.1.113730.1.4</td>
-            <td class="plain_odd" align="center">X</td>
-            <td class="plain_odd" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_even" align="left">Netscape Certificate Renewal URL</td>
-            <td class="plain_even" align="left">2.16.840.1.113730.1.7</td>
-            <td class="plain_even" align="center">X</td>
-            <td class="plain_even" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_odd" align="left">Netscape CA Policy URL</td>
-            <td class="plain_odd" align="left">2.16.840.1.113730.1.8</td>
-            <td class="plain_odd" align="center">X</td>
-            <td class="plain_odd" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_even" align="left">Netscape SSL Server Name</td>
-            <td class="plain_even" align="left">2.16.840.1.113730.1.12</td>
-            <td class="plain_even" align="center">X</td>
-            <td class="plain_even" align="center">X</td>
-          </tr>
-          <tr valign="middle">
-            <td class="plain_odd" align="left">Netscape Comment</td>
-            <td class="plain_odd" align="left">2.16.840.1.113730.1.13</td>
             <td class="plain_odd" align="center">X</td>
             <td class="plain_odd" align="center">X</td>
           </tr>
@@ -678,19 +633,6 @@ title: KeyStore Explorer - Specifications
 
     <div class="col-md-4" role="complementary">
       <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
-      <!-- <nav id="toc" data-toggle="toc" class="sticky-top"> -->
-      <!--   <ul class="nav navbar-nav"> -->
-      <!--     <li><a class="nav-link" href="#keystores">KeyStores</a></li> -->
-      <!--     <li><a class="nav-link" href="#key_pairs">Key Pairs</a></li> -->
-      <!--     <li><a class="nav-link" href="#certificates_and_crls">Certificates and CRLs</a></li> -->
-      <!--     <li><a class="nav-link" href="#certificate_signing_requests">Certificate Signing Requests (CSR)</a></li> -->
-      <!--     <li><a class="nav-link" href="#x509_extensions">X.509 Extensions</a></li> -->
-      <!--     <li><a class="nav-link" href="#key_pair_import_and_export">Key Pair Import and Export</a></li> -->
-      <!--     <li><a class="nav-link" href="#trusted_certificate_import_and_export">Trusted Certificate Import and Export</a></li> -->
-      <!--     <li><a class="nav-link" href="#public_key_export">Public Key Export</a></li> -->
-      <!--     <li><a class="nav-link" href="#digital_signatures">Digital Signatures</a></li> -->
-      <!--   </ul> -->
-      <!-- </nav> -->
     </div>
   </div>
 </div>
