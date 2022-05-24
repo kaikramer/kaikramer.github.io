@@ -35,7 +35,7 @@ title: KeyStore Explorer - Specifications
             <td class="plain_odd" align="left">Java Cryptography Extension KeyStore. More secure version of JKS.</td>
           </tr>
           <tr valign="middle">
-            <td class="plain_even" align="left">PKCS #12</td>
+            <td class="plain_even" align="left">PKCS&nbsp;#12</td>
             <td class="plain_even" align="left">Public-Key Cryptography Standards #12 KeyStore. RSA's KeyStore format.</td>
           </tr>
           <tr valign="middle">
@@ -119,6 +119,21 @@ title: KeyStore Explorer - Specifications
           <tr valign="middle">
             <td class="plain_odd" align="left">SHA-512 with RSA **</td>
           </tr>
+          <tr valign="middle">
+            <td class="plain_odd" align="left">SHA-1 with RSA and MGF1</td>
+          </tr>
+          <tr valign="middle">
+            <td class="plain_odd" align="left">SHA-224 with RSA and MGF1</td>
+          </tr>
+          <tr valign="middle">
+            <td class="plain_odd" align="left">SHA-256 with RSA and MGF1</td>
+          </tr>
+          <tr valign="middle">
+            <td class="plain_odd" align="left">SHA-384 with RSA and MGF1 *</td>
+          </tr>
+          <tr valign="middle">
+            <td class="plain_odd" align="left">SHA-512 with RSA and MGF1 **</td>
+          </tr>
         </tbody>
       </table>
 
@@ -153,6 +168,12 @@ title: KeyStore Explorer - Specifications
           <td class="plain_odd" align="left">
             brainpoolP160r1, brainpoolP160t1, brainpoolP192r1, brainpoolP192t1, brainpoolP224r1, brainpoolP224t1, brainpoolP256r1, brainpoolP256t1,
             brainpoolP320r1, brainpoolP320t1, brainpoolP384r1, brainpoolP384t1, brainpoolP512r1, brainpoolP512t1
+          </td>
+        </tr>
+        <tr valign="middle">
+          <td class="plain_odd" align="left" valign="top">Edwards curves</td>
+          <td class="plain_odd" align="left">
+            Ed25519, Ed448
           </td>
         </tr>
       </table>
