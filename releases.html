@@ -4,6 +4,86 @@ title: KeyStore Explorer - Release Notes
 ---
 
 <div class="page-header">
+    <h1>Release 5.5.2 <small class="text-muted">22 Jan 2023</small></h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h5 class="h5">UI Improvements</h5>
+    <ul>
+      <li>Improvements in public key details dialog:</li>
+      <ol>
+        <li>Added public key fingerprint with four algorithms:</li>
+          <ol>
+            <li>RFC 5280 SubjectKeyIdentifier (SKI) method 1</li>
+            <li>RFC 5280 SubjectKeyIdentifier (SKI) method 2</li>
+            <li>SHA-1 calculated over SubjectPublicKeyIdentifier ASN.1 structure</li>
+            <li>SHA-256 calculated over SubjectPublicKeyIdentifier ASN.1 structure</li>
+          </ol>
+        <li>Improved detail infos for EC keys (showing the named curve and public key fields)</li>
+      </ol>
+      <li>Redesigned Preferences dialog (contributed by Colbix)</li>
+      <li>Added a setting for PKCS#12 encryption to preferences. This allows to use a less secure encryption algorithm and is
+        basically a workaround for Windows Server 2016
+        which does not support PBES2 with AES256, which is the standard encryption for PKCS#12 files in newer Java versions.
+        This has no effect if the Java runtime still uses the old encryption algorithm.
+      </li>
+      <li>Added "eye" (reveal) button on password fields (this works only with look&amp;feel set to "Flat Light", "Flat Dark", "Flat IntelliJ" or "Flat Darcula")</li>
+      <li>Generate Certificate: New button "Transfer Name and Extensions" was added that allows to select an existing
+        certificate as a template for the new one (contributed by Jairo Graterón)</li>
+      <li>List certificates dialog was improved, it reflects the main table now (contributed by Jairo Graterón)</li>
+      <li>The icons for expiry status in the main table do not only differ in color now but also 
+        in shape and symbols, making it easier for users with color deficiencies to differentiate between them.
+        </li>
+    </ul>
+    <h5 class="h5">Other Improvements</h5>
+    <ul>
+      <li>Added support for Base64 encoded DER keys/CSRs in "Examine File/Clipboard" (in addition to PEM and binary DER)</li>
+      <li>Added support for DN attribute "organizationIdentifier" 2.5.4.97</li>
+      <li>Updated JavaFXFileChooser to include setSelectedExtensionFilter (contributed by Colbix)</li>
+      <li>Updated DErrorCollection (contributed by Colbix)</li>
+      <li>Generated CSRs are now also copied to system clipboard</li>
+      <li>Improved focus order in DN chooser: You can now use the tab key to go to the next input field.</li>
+      <li>TSA list: Added timestamp.identrust.com (replacing tsa.starfieldtech.com)</li>
+      <li>Updated libraries to latest versions, BC is now at version 1.72</li>
+    </ul>
+    <h5 class="h5">Removals</h5>
+    <ul>
+      <li>Removed support for obsolete BKS-V1 keystore type</li>
+      <li>Removed obsolete hash algorithms: MD2, MD4, RIPEMD128, RIPEMD256</li>
+    </ul>
+    </p>
+    <p>
+    <h5 class="h5">Bug Fixes</h5>
+    <ul>
+      <li>Fixed parsing of MsCrlNextPublish extension (reported by The-Lum)</li>
+      <li>Fixed UI freeze on auto update check when packets are dropped (reported by SanskritFritz)</li>
+      <li>PAC: included standalone Nashorn; replaced pac JS with Java code (reported by poel)</li>
+      <li>Fixed top left icon for ASN.1 dump window (reported by The-Lum)</li>
+      <li>Fixed detection of local JRE (reported by FranLa and Tabiskabis)</li>
+    </ul>
+    </p>
+  </div>
+  <div class="col-md-6">
+      <p>
+          <img src="images/releases/rel55_pub_key_details.png" class="img" align="top" border="0" />
+      </p>
+      <p>
+          <img src="images/releases/rel55_preferences.png" class="img" align="top" border="0" />
+      </p>
+      <p>
+          <img src="images/releases/rel55_password.png" class="img" align="top" border="0" />
+      </p>
+      <p>
+          <img src="images/releases/rel55_transfer.png" class="img" align="top" border="0" />
+      </p>
+      <p>
+          <img src="images/releases/rel55_validity_icons.png" class="img" align="top" border="0" />
+      </p>
+  </div>
+</div>
+
+
+<div class="page-header">
     <h1>Release 5.5.1 <small class="text-muted">27 Jan 2022</small></h1>
 </div>
 <div class="row">
