@@ -16,8 +16,8 @@ title: KeyStore Explorer - Release Notes
           <ol>
             <li>RFC 5280 SubjectKeyIdentifier (SKI) method 1</li>
             <li>RFC 5280 SubjectKeyIdentifier (SKI) method 2</li>
-            <li>SHA-1 calculated over SubjectPublicKeyIdentifier ASN.1 structure</li>
-            <li>SHA-256 calculated over SubjectPublicKeyIdentifier ASN.1 structure</li>
+            <li>SHA-1 calculated over SubjectPublicKeyInfo ASN.1 structure</li>
+            <li>SHA-256 calculated over SubjectPublicKeyInfo ASN.1 structure</li>
           </ol>
         <li>Improved detail infos for EC keys (showing the named curve and public key fields)</li>
       </ol>
@@ -462,7 +462,7 @@ title: KeyStore Explorer - Release Notes
             OIDs are hard to remember and it is easy to make mistakes when entering them.
         </p>
         <p>
-            Wherever in KSE where you can enter OIDs, this new feature makes suggestions
+            Wherever you can enter OIDs in KSE, this new feature makes suggestions
             that you can select from a drop down list. Of course - if none of the suggestions
             should match, you can still enter another OID just like before.
         </p>
