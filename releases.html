@@ -4,82 +4,181 @@ title: KeyStore Explorer - Release Notes
 ---
 
 <div class="page-header">
+    <h1>Release 5.5.3 <small class="text-muted">29 Dec 2023</small></h1>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h5 class="h5">Improvements</h5>
+        <ul>
+            <li>Comparing certificates - two ways to compare certificates have been added:</li>
+            <ol>
+                <li>Side-by-side textual comparison: By selecting two certificates in the main view and choosing "Compare" in the
+                    context menu, a summary of the most important certificate data and an ASN.1 dump of both certificates
+                    is displayed side by side and the differences are marked in a contrasting color (contributed by Jairo Graterón).
+                </li>
+                <li>Multiple certificate view dialogs: The certificate viewer dialog is now non-modal, which means several instances
+                    of this dialog can be kept open at the same time. This allows to view multiple certificates at the same time
+                    (contributed by Piotr Kubiak).</li>
+            </ol>
+            <li>Added new configuration options:
+                <ul>
+                    <li>Size of generated certificate serial number (contributed by dedabob)</li>
+                    <li>FlatLaf macOS themes</li>
+                </ul>
+            </li>
+            <li>Added functionality to examine JWT in system clipboard (contributed by Afonso Fernandes)</li>
+            <li>Added PBES2 algorithms as encryption options for PKCS#8 export of private keys:
+                <ul>
+                    <li>PBES2 with SHA-1 and TDES</li>
+                    <li>PBES2 with SHA-1 and AES-128</li>
+                    <li>PBES2 with SHA-1 and AES-256</li>
+                    <li>PBES2 with SHA-256 and AES-256</li>
+                </ul>
+            </li>
+            <li>Added export button in private key view dialog (contributed by Jairo Graterón)</li>
+            <li>Added verify button in the CSR view dialog to check its signature</li>
+            <li>Added start of certificate validity as additional optional column for main table view (contributed by Björn Michael)</li>
+            <li>Improved certificate key usage and EKU dialogs by adding tooltips with additional details (contributed by The-Lum):
+                <ul>
+                    <li>For the key usage extension the number of the bit (for example 0 for digitalSignature)</li>
+                    <li>For extended key usage the OID of the key usage</li>
+                </ul>
+            </li>
+            <li>Enlarged default size of ASN.1 dump window, hex dumps are now displayed in two columns of 8 bytes instead of one
+                (contributed by The-Lum)</li>
+            <li>Added total number of revoked certs to CRL view</li>
+            <li>Added length info to OCTETSTRING and BITSTRING in ASN1 viewer</li>
+            <li>HTTP redirects for downloads of CRLs and CRTs are now supported (contributed by Jairo Graterón)</li>
+            <li>Made several adjustments to file extensions used as filters in file chooser dialogs and as default extensions for
+                export files. The reasons were to adapt to existing official standards and also to avoid conflicts with other file
+                types (thanks to Sergey Ponomarev for his investigations):
+                <ul>
+                    <li>Changed default file extension for <i>private key export as DER-encoded PKCS#8</i> from ".pkcs8" to ".p8" as
+                        this extension was registered with IANA (contributed by Sergey Ponomarev)</li>
+                    <li>Changed default file extension for <i>private key export as DER-encoded PKCS#1/ECPrivateKey</i> from ".key"
+                        to ".privkey" (".key" is used for PGP/GPG files and also for Keynote presentations and there seems to be no
+                        "official" file extension for these formats)</li>
+                    <li>Changed default file extension for <i>public key export as DER-encoded RFC 5280 SubjectPublicKeyInfo</i>
+                        from ".pub" to ".pubkey" (".pub" is used for MS Publisher files)</li>
+                    <li>Changed default file extension for <i>PEM-encoded files</i> to ".pem" (usually in combination with a prefix
+                        for the actual content like ".p8.pem" or ".pubkey.pem)"</li>
+                    <li>Added ".p8", ".p8e" and ".pk8" as file extension filters for selecting / importing PKCS#8 files (contributed
+                        by Sergey Ponomarev)</li>
+                    <li>Added ".pem" as file extension filter to all file chooser dialogs that could possibly open PEM files</li>
+                </ul>
+            </li>
+            <li>Changed dialogs for key pair generation and signing CSRs to display serial number as hex string</li>
+            <li>Improved certificate chain detection</li>
+            <li>Adjusted password quality meter to show more realistic results</li>
+            <li>Replaced IdenTrust's TSA with QuoVadis'</li>
+            <li>Improved handling of invalid PEM files</li>
+            <li>The certificates selection dialog is now resizable</li>
+            <li>Fixed typo in tooltips for public key fingerprint</li>
+            <li>Improved French translation (by The-Lum)</li>
+            <li>Improved German translation</li>
+            <li>Updated third-party libraries to latest versions, BC is now at version 1.77</li>
+        </ul>
+        <h5 class="h5">Bug Fixes</h5>
+        <ul>
+            <li>Fixed handling of GeneralName/OtherName/UPN (reported by Björn Michael)</li>
+            <li>Fixed handling of explicitly specified EC curve parameters (reported by Arnieh)</li>
+            <li>Fixed calender selection issue in certificate generation dialog (reported by freedom1b2830)</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h5 class="h5">&nbsp;</h5>
+        <p>
+            <img src="images/releases/rel553_compare1.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel553_compare2.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel553_preferences.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel553_examine_jwt.png" class="img" align="top" border="0" />
+        </p>
+    </div>
+</div>
+
+<div class="page-header">
     <h1>Release 5.5.2 <small class="text-muted">22 Jan 2023</small></h1>
 </div>
 <div class="row">
-  <div class="col-md-6">
-    <h5 class="h5">UI Improvements</h5>
-    <ul>
-      <li>Improvements in public key details dialog:</li>
-      <ol>
-        <li>Added public key fingerprint with four algorithms:</li>
-          <ol>
-            <li>RFC 5280 SubjectKeyIdentifier (SKI) method 1</li>
-            <li>RFC 5280 SubjectKeyIdentifier (SKI) method 2</li>
-            <li>SHA-1 calculated over SubjectPublicKeyInfo ASN.1 structure</li>
-            <li>SHA-256 calculated over SubjectPublicKeyInfo ASN.1 structure</li>
-          </ol>
-        <li>Improved detail infos for EC keys (showing the named curve and public key fields)</li>
-      </ol>
-      <li>Redesigned Preferences dialog (contributed by Colbix)</li>
-      <li>Added a setting for PKCS#12 encryption to preferences. This allows to use a less secure encryption algorithm and is
-        basically a workaround for Windows Server 2016
-        which does not support PBES2 with AES256, which is the standard encryption for PKCS#12 files in newer Java versions.
-        This has no effect if the Java runtime still uses the old encryption algorithm.
-      </li>
-      <li>Added "eye" (reveal) button on password fields (this works only with look&amp;feel set to "Flat Light", "Flat Dark", "Flat IntelliJ" or "Flat Darcula")</li>
-      <li>Generate Certificate: New button "Transfer Name and Extensions" was added that allows to select an existing
-        certificate as a template for the new one (contributed by Jairo Graterón)</li>
-      <li>List certificates dialog was improved, it reflects the main table now (contributed by Jairo Graterón)</li>
-      <li>The icons for expiry status in the main table do not only differ in color now but also 
-        in shape and symbols, making it easier for users with color deficiencies to differentiate between them.
-        </li>
-    </ul>
-    <h5 class="h5">Other Improvements</h5>
-    <ul>
-      <li>Added support for Base64 encoded DER keys/CSRs in "Examine File/Clipboard" (in addition to PEM and binary DER)</li>
-      <li>Added support for DN attribute "organizationIdentifier" 2.5.4.97</li>
-      <li>Updated JavaFXFileChooser to include setSelectedExtensionFilter (contributed by Colbix)</li>
-      <li>Updated DErrorCollection (contributed by Colbix)</li>
-      <li>Generated CSRs are now also copied to system clipboard</li>
-      <li>Improved focus order in DN chooser: You can now use the tab key to go to the next input field.</li>
-      <li>TSA list: Added timestamp.identrust.com (replacing tsa.starfieldtech.com)</li>
-      <li>Updated libraries to latest versions, BC is now at version 1.72</li>
-    </ul>
-    <h5 class="h5">Removals</h5>
-    <ul>
-      <li>Removed support for obsolete BKS-V1 keystore type</li>
-      <li>Removed obsolete hash algorithms: MD2, MD4, RIPEMD128, RIPEMD256</li>
-    </ul>
-    </p>
-    <p>
-    <h5 class="h5">Bug Fixes</h5>
-    <ul>
-      <li>Fixed parsing of MsCrlNextPublish extension (reported by The-Lum)</li>
-      <li>Fixed UI freeze on auto update check when packets are dropped (reported by SanskritFritz)</li>
-      <li>PAC: included standalone Nashorn; replaced pac JS with Java code (reported by poel)</li>
-      <li>Fixed top left icon for ASN.1 dump window (reported by The-Lum)</li>
-      <li>Fixed detection of local JRE (reported by FranLa and Tabiskabis)</li>
-    </ul>
-    </p>
-  </div>
-  <div class="col-md-6">
-      <p>
-          <img src="images/releases/rel55_pub_key_details.png" class="img" align="top" border="0" />
-      </p>
-      <p>
-          <img src="images/releases/rel55_preferences.png" class="img" align="top" border="0" />
-      </p>
-      <p>
-          <img src="images/releases/rel55_password.png" class="img" align="top" border="0" />
-      </p>
-      <p>
-          <img src="images/releases/rel55_transfer.png" class="img" align="top" border="0" />
-      </p>
-      <p>
-          <img src="images/releases/rel55_validity_icons.png" class="img" align="top" border="0" />
-      </p>
-  </div>
+    <div class="col-md-6">
+        <h5 class="h5">UI Improvements</h5>
+        <ul>
+            <li>Improvements in public key details dialog:</li>
+            <ol>
+                <li>Added public key fingerprint with four algorithms:</li>
+                <ol>
+                    <li>RFC 5280 SubjectKeyIdentifier (SKI) method 1</li>
+                    <li>RFC 5280 SubjectKeyIdentifier (SKI) method 2</li>
+                    <li>SHA-1 calculated over SubjectPublicKeyInfo ASN.1 structure</li>
+                    <li>SHA-256 calculated over SubjectPublicKeyInfo ASN.1 structure</li>
+                </ol>
+                <li>Improved detail infos for EC keys (showing the named curve and public key fields)</li>
+            </ol>
+            <li>Redesigned Preferences dialog (contributed by Colbix)</li>
+            <li>Added a setting for PKCS#12 encryption to preferences. This allows to use a less secure encryption algorithm and is
+                basically a workaround for Windows Server 2016
+                which does not support PBES2 with AES256, which is the standard encryption for PKCS#12 files in newer Java versions.
+                This has no effect if the Java runtime still uses the old encryption algorithm.
+            </li>
+            <li>Added "eye" (reveal) button on password fields (this works only with look&amp;feel set to "Flat Light", "Flat Dark", "Flat IntelliJ" or "Flat Darcula")</li>
+            <li>Generate Certificate: New button "Transfer Name and Extensions" was added that allows to select an existing
+                certificate as a template for the new one (contributed by Jairo Graterón)</li>
+            <li>List certificates dialog was improved, it reflects the main table now (contributed by Jairo Graterón)</li>
+            <li>The icons for expiry status in the main table do not only differ in color now but also
+                in shape and symbols, making it easier for users with color deficiencies to differentiate between them.
+            </li>
+        </ul>
+        <h5 class="h5">Other Improvements</h5>
+        <ul>
+            <li>Added support for Base64 encoded DER keys/CSRs in "Examine File/Clipboard" (in addition to PEM and binary DER)</li>
+            <li>Added support for DN attribute "organizationIdentifier" 2.5.4.97</li>
+            <li>Updated JavaFXFileChooser to include setSelectedExtensionFilter (contributed by Colbix)</li>
+            <li>Updated DErrorCollection (contributed by Colbix)</li>
+            <li>Generated CSRs are now also copied to system clipboard</li>
+            <li>Improved focus order in DN chooser: You can now use the tab key to go to the next input field.</li>
+            <li>TSA list: Added timestamp.identrust.com (replacing tsa.starfieldtech.com)</li>
+            <li>Updated libraries to latest versions, BC is now at version 1.72</li>
+        </ul>
+        <h5 class="h5">Removals</h5>
+        <ul>
+            <li>Removed support for obsolete BKS-V1 keystore type</li>
+            <li>Removed obsolete hash algorithms: MD2, MD4, RIPEMD128, RIPEMD256</li>
+        </ul>
+        </p>
+        <p>
+        <h5 class="h5">Bug Fixes</h5>
+        <ul>
+            <li>Fixed parsing of MsCrlNextPublish extension (reported by The-Lum)</li>
+            <li>Fixed UI freeze on auto update check when packets are dropped (reported by SanskritFritz)</li>
+            <li>PAC: included standalone Nashorn; replaced pac JS with Java code (reported by poel)</li>
+            <li>Fixed top left icon for ASN.1 dump window (reported by The-Lum)</li>
+            <li>Fixed detection of local JRE (reported by FranLa and Tabiskabis)</li>
+        </ul>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/rel55_pub_key_details.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel55_preferences.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel55_password.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel55_transfer.png" class="img" align="top" border="0" />
+        </p>
+        <p>
+            <img src="images/releases/rel55_validity_icons.png" class="img" align="top" border="0" />
+        </p>
+    </div>
 </div>
 
 
@@ -89,7 +188,7 @@ title: KeyStore Explorer - Release Notes
 <div class="row">
     <div class="col-md-6">
         <p>
-            A new feature for signing JWT (JSON Web Token) has been contributed by Jairo Graterón. 
+            A new feature for signing JWT (JSON Web Token) has been contributed by Jairo Graterón.
             It came just a little too late for the 5.5.0 release, so it is included in this update:
         </p>
         <p>
@@ -154,8 +253,8 @@ title: KeyStore Explorer - Release Notes
             The generated CRL can then be saved to the file system in PEM or DER format.
         </p>
         <p>
-            The feature uses an automatically created file with the issuer serial number as its name and ".db" 
-            as its extension to save meta data like CRL serial number, the revoked certificates and the validity 
+            The feature uses an automatically created file with the issuer serial number as its name and ".db"
+            as its extension to save meta data like CRL serial number, the revoked certificates and the validity
             period. This makes creating subsequent CRLs much easier.
         </p>
         <p>
@@ -347,7 +446,7 @@ title: KeyStore Explorer - Release Notes
                             <th scoppe="row">Value</th>
                             <td>302d302ba029a0278625687474703a2f2f646f64<br>
                                 6779636572742e6578616d706c652e636f6d2f65<br>
-                                7663612e63726c</td>
+                                    7663612e63726c</td>
                         </tr>
                     </table>
                 </p>
@@ -503,27 +602,27 @@ title: KeyStore Explorer - Release Notes
 <div class="row">
     <div class="col-md-6">
         <p>
-            KSE 5.5.0 comes with a completely new launcher executable for Windows. It was written 
+            KSE 5.5.0 comes with a completely new launcher executable for Windows. It was written
             especially for KSE and uses <a href="https://github.com/Bill-Stewart/JavaInfo">Bill Stewart's JavaInfo.dll</a>
             for detecting Java installations.
         </p>
         <p>
             The launcher searches for Java in the following locations in exactly this order:
-            <ol>
-                <li>In a folder named "jre" next to kse.exe.</li>
-                <li>In the paths where the environment variables JAVA_HOME, JDK_HOME and JRE_HOME point to.</li>
-                <li>In the folders of the Path environment variable if there is a java.exe.</li>
-                <li>The registry in the following locations:</li>
-                <ul>
-                    <li>HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft</li>
-                    <li>HKEY_LOCAL_MACHINE\SOFTWARE\IBM</li>
-                    <li>HKEY_LOCAL_MACHINE\SOFTWARE\AdoptOpenJDK</li>
-                    <li>HKEY_LOCAL_MACHINE\SOFTWARE\Eclipse Adoptium</li>
-                    <li>HKEY_LOCAL_MACHINE\SOFTWARE\Eclipse Foundation</li>
-                    <li>HKEY_LOCAL_MACHINE\SOFTWARE\Semeru</li>
-                    <li>HKEY_LOCAL_MACHINE\SOFTWARE\Azul Systems\Zulu</li>
-                </ul>
-            </ol>
+        <ol>
+            <li>In a folder named "jre" next to kse.exe.</li>
+            <li>In the paths where the environment variables JAVA_HOME, JDK_HOME and JRE_HOME point to.</li>
+            <li>In the folders of the Path environment variable if there is a java.exe.</li>
+            <li>The registry in the following locations:</li>
+            <ul>
+                <li>HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft</li>
+                <li>HKEY_LOCAL_MACHINE\SOFTWARE\IBM</li>
+                <li>HKEY_LOCAL_MACHINE\SOFTWARE\AdoptOpenJDK</li>
+                <li>HKEY_LOCAL_MACHINE\SOFTWARE\Eclipse Adoptium</li>
+                <li>HKEY_LOCAL_MACHINE\SOFTWARE\Eclipse Foundation</li>
+                <li>HKEY_LOCAL_MACHINE\SOFTWARE\Semeru</li>
+                <li>HKEY_LOCAL_MACHINE\SOFTWARE\Azul Systems\Zulu</li>
+            </ul>
+        </ol>
         </p>
     </div>
     <div class="col-md-3">
