@@ -3,5 +3,4 @@ _site
 .jekyll-metadata
 /bin/
 manual
-Gemfile
 Gemfile.lock
