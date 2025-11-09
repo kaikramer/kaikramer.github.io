@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body role="document" data-spy="scroll" data-target="#toc" data-offset="70">
+    {% include header.html %}
+    <div class="container" role="main">
+        <div class="row">
+            <div class="col-sm-8 text-justify">
+                {{ content }}
+            </div>
+            <div class="col-sm-4 mt-5 pt-4">
+                <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+            </div>
+        </div>
+        <hr />
+        {% include footer.html %}
+    </div>
+</body>
+
+</html>
