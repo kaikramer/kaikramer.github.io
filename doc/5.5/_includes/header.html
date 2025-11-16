@@ -31,7 +31,7 @@
                     <li class="nav-item {% if page.url == "/releases.html" %}active{% endif %}"> <a class="nav-link" href="{{'/releases.html' | relative_url}}">Release Notes</a> </li>
                     <li class="nav-item {% if page.url == "/downloads.html" %}active{% endif %}"> <a class="nav-link" href="{{'/downloads.html' | relative_url}}">Downloads</a> </li>
                     <li class="nav-item {% if page.url == "/contribute.html" %}active{% endif %}"> <a class="nav-link" href="{{'/contribute.html' | relative_url}}">Contribute</a> </li>
-                    <li class="nav-item {% if page.url == "/history/index.html" %}active{% endif %}"> <a class="nav-link" href="{{'/history/index.html' | relative_url}}">History</a> </li>
+                    <li class="nav-item {% if page.layout == 'history' %}active{% endif %}"> <a class="nav-link" href="{{'/history/index.html' | relative_url}}">History</a> </li>
                     <li class="nav-item {% if page.url == "/license.html" %}active{% endif %}"> <a class="nav-link" href="{{'/license.html' | relative_url}}">License</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="https://github.com/kaikramer/keystore-explorer">GitHub</a> </li>
                 </ul>
