@@ -4,6 +4,471 @@ title: KeyStore Explorer - Release Notes
 ---
 
 <div class="page-header">
+    <h1>Release 5.6.1 <small class="text-muted">XX Jan 2026</small></h1>
+</div>
+<p>
+    This release includes the following improvements, new algorithms, translations and bugfixes:
+</p>
+
+<h2 class="h3">Verification of JAR Files</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Signing JAR files has been part of KSE's functionality for a long time. 
+            Now it is also possible to verify the signatures of signed JAR files.
+        </p>
+        <p>
+            This can be done via the "Verify JAR File Signature" menu item in the Tools menu.
+        </p>
+        <p>
+            After selecting a signed JAR file, KSE will display the details of the signatures found in the JAR file
+            and indicate whether the signatures are valid or not.
+        </p>    
+        <p>
+        The verification details are very similar to the output of the "jarsigner -verify" command (see for example 
+        <a href="https://docs.oracle.com/en/java/javase/17/docs/specs/man/jarsigner.html#example-of-verifying-a-signed-jar-file">jarsigner - example of verifying a signed jar file</a>).
+        </p>
+        <p>
+            The details include:
+            <ul>
+                <li>the overall signature status</li>
+                <li>for each file in the JAR the name, size, date and verification flags</li>
+                <li>a button to show further details about the signatures (a jar can have multiple signatures)</li>
+                <li>a button to show the certificates</li>
+            </ul> 
+            <p>
+            The meaning of the verification flags are probably already known from jarsigner but here is a short explanation
+            (the same explanation is displayed in the tooltip when you hover over the flags column header):
+            </p>
+            <p>
+            s = signature was verified<br/>
+            m = entry is listed in manifest<br/>
+            k = at least one certificate was found in keystore<br/>
+            </p>
+        </p>
+        </p>
+        <p>
+            This feature was contributed by jonwltn.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/verify_jar_menu.png" class="img" alt="screenshot of tools menu" />
+        </p>
+        <p>
+            <img src="images/releases/release561/verify_jar_details.png" class="img" alt="screenshot of jar verification details" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Post Quantum Cryptography (PQC) Algorithms: ML-DSA and SLH-DSA</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            KSE now supports the ML-DSA and SLH-DSA signature and key algorithms. These algorithms are part 
+            of the NIST standardization process for post-quantum cryptography (PQC).
+        </p>    
+        <p>
+            Supported are the following operations with these algorithms:
+            <ul> 
+                <li>key pair generation</li>
+                <li>signing certificates, CSRs, CRLs, JARs and arbitrary files</li>
+                <li>import and export of private and public keys</li>
+                <li>viewing key details</li>
+            </ul>
+        </p>
+        <p>
+            This feature was contributed by AnassBousseaden (ML-DSA) and jonwltn (SLH-DSA).
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/pqc_keygen.png" class="img" alt="screenshot of key generation dialog" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">SM2 and ECGOST</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            KSE now supports the SM2 and ECGOST signature and key algorithms. These algorithms are widely used
+            in China (SM2) and Russia (ECGOST). They are elliptic curve algorithms and can therefore be used 
+            by selecting the EC key type with the respective curve set in the key generation dialog.
+        </p>    
+        <p>
+            SM2 is currently only supported for keystore files of type BKS, BCFKS and UBER.
+        </p>
+        <p>
+            Supported are the following operations with these algorithms:
+            <ul> 
+                <li>key pair generation</li>
+                <li>signing certificates, CSRs, CRLs, JARs and arbitrary files</li>
+                <li>import and export of private and public keys</li>
+                <li>viewing key details</li>
+            </ul>
+        </p>
+        <p>
+            Contributed by jonwltn.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/ecgost_keygen.png" class="img" alt="screenshot of key generation dialog" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Improved Key Pair Import</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            In previous releases the user had to select the format of the key in the key pair import dialog,
+            e.g. PKCS#8, PKCS#12, OpenSSL etc. Sometimes it was not clear which format to select. Or in some cases the
+            files had a wrong file extension that did not match the actual format. This lead to confusion and
+            import errors.
+        </p>
+        <p>
+            Now the key pair import dialog automatically detects the format of the key to import.
+        </p>
+        <p>
+            In addition to that it is now possible to import key pairs without a matching certificate. In Java
+            keystores key pairs are always associated with a certificate chain. But if the key pair has no
+            certificate yet, KSE now creates a self-signed certificate automatically during the import process.
+        </p>
+        <p>
+            If you leave the certificate fields empty and click the "Import" button, KSE will ask whether a self-signed
+            certificate should be created.
+        </p>
+        <p>
+            Offering the generation of a self-signed certificate if none was provided was a contribution by Jairo Graterón.<br />
+            The rework of the import dialog to use automatic format detection was contributed by jonwltn.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/import_key_pair.png" class="img" alt="screenshot of key pair import" />
+        </p>
+        <p>
+            <img src="images/releases/release561/import_self_signed_cert.png" class="img" alt="screenshot of key pair import" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Store a Password in a KeyStore</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            With keytool you can store arbitrary passwords/passphrases in a keystore using the "-importpass" command.
+            KSE now supports this feature as well.
+        </p>    
+        <p>
+            The passphase entries can be created via the "Store Passphrase" menu item in the "Tools" menu.
+            They are stored as secret key entries in the keystore using a "PBE*" algorithm.
+        </p>
+        <p>
+            The stored passphrase can be viewed and modified like normal secret key entries.
+        </p>
+        <p>
+            This feature was contributed by jonwltn.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/store_passphrase_menu.png" class="img" alt="screenshot of store passphrase" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Certificate Validity Information</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            The certificate details view now includes two additional fields:
+            <ul>
+                <li>a graphical representation of the certificate validity period in the form of a progress bar</li>
+                <li>the total, elapsed and remaining days of the validity period</li>
+            </ul>
+        </p>   
+        <p>
+            This feature was contributed by Jairo Graterón.
+        </p> 
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/validity_progress.png" class="img" alt="screenshot of certificate validity progress" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Support for Additional Extensions in Certificate Viewer</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            The values of the following certificate extensions are now displayed in the certificate details view:
+            <ul>
+                <li>SignedCertificateTimestampList/SCTs (OID 1.3.6.1.4.1.11129.2.4.2)</li>
+                <li>MS Application Policies (OID 1.3.6.1.4.1.311.21.10)</li>
+                <li>MS NTDS CA Security (OID 1.3.6.1.4.1.311.25.2)</li>
+            </ul>
+        </p>   
+        <p>
+            Parsing of the SCTs extension was contributed by Jairo Graterón and the two MS extensions by The-Lum.
+        </p> 
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/extensions_sct.png" class="img" alt="screenshot of certificate extensions" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Quick Selection of Columns in Main Table</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            In previous releases the columns displayed in the main table could be selected in the preferences dialog.
+            Now there is a second, quicker way to select the columns via a context menu in the table header
+        </p>    
+        <p>
+            Right-clicking on the table header opens the context menu. It shows a list of all available
+            columns to select or deselect them.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/column_context_menu.png" class="img" alt="screenshot of column context menu" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Export Main Table as CSV</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            The visible content of the KSE main table can now be exported as a CSV (comma-separated values) file.
+        </p>   
+        <p>
+            This can be done via the "Export as CSV" menu item in the "Tools" menu. The exported CSV file
+            includes all visible columns - to add or remove columns, use the column selection feature.
+        </p>
+        <p>
+            The separator character (either comma or semicolon) is automatically selected based on the system locale.
+        </p>
+        <p>
+            This feature was contributed by jonwltn.
+        </p> 
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/csv_export.png" class="img" alt="screenshot of CSV export" />
+        </p>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">UI/UX Enhancements</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            The context menu for multi-selections in the main table has received the following improvements:
+            <ul>
+                <li>The certificate details view can now be opened for multiple selected certificates at once (contributed by Jairo Graterón).</li>
+                <li>The Unlock option is now also available for multiple selected entries (contributed by jonwltn).</li>
+                <li>Separators have been added to improve menu organization (contributed by jonwltn).</li>
+            </ul>
+        </p> 
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/multi_selection_menu.png" class="img" alt="screenshot of multi selection menu" />
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Additional keyboard shortcuts have been added to the menus (both new and existing):
+        <ul>
+            <li>View public key details: <kbd>+</kbd></li>
+            <li>View private key details: <kbd>-</kbd></li>
+            <li>View certificate details: <kbd>Enter</kbd></li>
+            <li>Delete selected entries: <kbd>Del</kbd></li>
+            <li>Rename selected entry: <kbd>F2</kbd></li>
+        </ul>
+        </p>
+        <p>Contributed by The-Lum.</p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/keyboard_shortcuts_menu.png" class="img"
+                alt="screenshot of keyboard shortcuts menu" />
+        </p>
+        <p>
+            <img src="images/releases/release561/keyboard_shortcuts_menu2.png" class="img"
+                alt="screenshot of keyboard shortcuts menu" />
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Action Buttons ("Import", "Export", "PEM", "ASN.1") in Dialogs:
+        <ul>
+            <li>The order of the buttons has been standardized across all dialogs for better consistency.</li>
+            <li>Missing buttons have been added where appropriate, e.g. "Export" in Public Key Details dialog or 
+                "PEM" in CRL Details dialog (contributed by jonwltn).
+            </li>
+            <li>Separators have been added to create a grouping of the buttons, because some dialogs have up to six action
+                buttons and quickly finding the right one becomes challenging.
+            </li>
+        </ul>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/buttons.png" class="img" alt="screenshot of buttons in dialogs" />
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            The following user choices are now remembered over restarts of KSE:
+        <ul>
+            <li>Certificate validity for generating a new key pair</li>
+            <li>Certificate validity for signing a CSR</li>
+            <li>CRL validity (only for new CRLs as the validity is otherwise determined from the last CRL)</li>
+            <li>Signature algorithm</li>
+        </ul>
+        </p>
+        <p>Contributed by jonwltn.</p>
+    </div>
+</div>
+
+<h2 class="h3">Other Enhancements</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <ul>
+                <li>Show certificate fingerprint in overview table (contributed by idvolkov)</li>
+                <li>SHA-3 with RSA PKCS#1 v1.5, RSA PSS and ECDSA signature algorithms (contributed by jonwltn)</li>
+                <li>Support Brainpool curves in P12/JKS/JCEKS keystores (contributed by beth-soptim)</li>
+                <li>Additional generation methods for Authority (AKI) and Subject Key Identifiers (SKI) (contributed by jonwltn)</li>
+                <li>Export Ed25519 private key as JWT (contributed by jonwltn)</li>
+                <li>JWS verification with Ed25519 public keys (contributed by jonwltn)</li>
+                <li>Only show secret key algorithms based on keystore support (contributed by jonwltn)</li>
+                <li>Implemented case-sensitive alias by key store type (contributed by jonwltn)</li>
+                <li>Improved display of ':' in Extension viewe (contributed by The-Lum)</li>
+                <li>Improved display of '=' and fixed 'IMPLICIT:' in ASN.1 viewer (contributed by The-Lum)</li>
+                <li>Added CertificatePolicies OIDs of CA/Browser Forum (contributed by The-Lum)</li>
+                <li>Added CertificatePolicy OIDs of Google (contributed by The-Lum)</li>
+                <li>Added CertificateTransparency OID (contributed by The-Lum)</li>
+                <li>Allow use of the verify actions without opening a key store (contributed by jonwltn)</li>
+                <li>Added ML-DSA OID for ASN.1 view, fix minor issue on UI labels for ML-DSA PublicKey (contributed by The-Lum)</li>
+                <li>Removed sorting of General Names (SAN, AKI, IAN, CDP) (contributed by idvolkov)</li>
+                <li>Improved OID list for ASN.1 view (`ValidityModel`, `PkixQCSyntax-v2`, ...) (contributed by The-Lum)</li>
+                <li>Keep leading zeros for secret keys in hex string (contributed by jonwltn)</li>
+                <li>Added password manager KDF iteration settings in preferences</li>
+                <li>Added progress dialogs for de-/encrypting keystore passwords</li>
+                <li>Allow leading spaces in PEM data for "Examine Clipboard" (contributed by tenpertur)</li>
+            </ul>
+        </p> 
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="images/releases/release561/fingerprint.png" class="img" alt="screenshot of fingerprint in main table" />
+        </p>
+        <p>
+            <img src="images/releases/release561/sha3_ecdsa.png" class="img" alt="screenshot of SHA-3 with ECDSA signature algorithm" />
+        </p>
+    </div>
+</div>
+
+<h2 class="h3">Bugfixes</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <ul>
+                <li>Fixed signing JWT with Ed25519 (contributed by jonwltn)</li>
+                <li>Fixed signature algorithm selection providing invalid options for EC keys (contributed by idvolkov)</li>
+                <li>Fixed "Assistive Technology not found" error by adding accessibility module</li>
+                <li>Fixed "internal inconsistencies" warning displayed by jarsigner (contributed by jonwltn)</li>
+                <li>Fixed AccessDenied error when signing JAR file using output file prefix or suffix (contributed by jonwltn)</li>
+                <li>Fixed certificate chain validation (contributed by Jairo Graterón)</li>
+                <li>Fixed CRL verification when using BC provider (contributed by jonwltn)</li>
+                <li>Fixed duplicate shortcut Ctrl-Alt-S (contributed by The-Lum)</li>
+                <li>Fixed KeyStore table translations (contributed by jonwltn)</li>
+                <li>Fixed lost focus on Secret Key entry after viewing details (contributed by jonwltn)</li>
+                <li>Fixed key stores not being updated after expiry warning days change (contributed by jonwltn)</li>
+                <li>Fixed private key fields button greyed out for Ed keys in JDK keystores</li>
+                <li>Fixed wrong language being used in PubKey details fingerprint algorithm</li>
+                <li>Keep leading zeros for secret keys in hex string (contributed by jonwltn)</li>
+                <li>Don't ask for entry password for PKCS#12 key stores (contributed by jonwltn)</li>
+            </ul>
+        </p> 
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+<h2 class="h3">Translations</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <ul>
+                <li>A translation to Finnish has been started by Ricky Tigg and the current state is included in this release.</li>
+                <li>Several other translations were started on Weblate as well but are still in a very early stage. 
+                    That's why they are not included in this release yet.</li>
+                <li>Many additions and improvements of the French translation were contributed by The-Lum</li>
+                <li>Many additions and improvements of the Spanish translation were contributed by Jairo Graterón</li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+        </p>
+    </div>
+</div>
+
+<h2 class="h3">Packaging</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <ul>
+                <li>macOS/Windows: Upgraded included Java runtime to version 25</li>
+                <li>Java 17 is the new minimum runtime version</li>
+                <li>macOS: The Vaqua theme is now included again.</li>
+                <li>Third-party libraries have been updated to their latest versions; BC is now at version 1.83 </li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+        </p>
+    </div>
+</div>
+
+
+
+<div class="page-header">
     <h1>Release 5.6.0 <small class="text-muted">17 May 2025</small></h1>
 </div>
 <p>
