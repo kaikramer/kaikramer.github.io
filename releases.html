@@ -63,7 +63,7 @@ title: KeyStore Explorer - Release Notes
     </div>
 </div>
 
-<h2 class="h3">Post Quantum Cryptography (PQC) Algorithms: ML-DSA and SLH-DSA</h2>
+<h2 class="h3">Post Quantum Cryptography (PQC) Algorithms: ML-DSA, ML-KEM and SLH-DSA</h2>
 <div class="row">
     <div class="col-md-6">
         <p>
@@ -80,7 +80,14 @@ title: KeyStore Explorer - Release Notes
             </ul>
         </p>
         <p>
-            This feature was contributed by AnassBousseaden (ML-DSA) and jonwltn (SLH-DSA).
+            In addition to that KSE also supports generating ML-KEM keypairs, but only in certificates that are 
+            signed with another key pair (as ML-KEM is a key encapsulation mechanism and not a signature algorithm).
+            This is achieved by using the "Sign New Key Pair" feature in the context menu of a signature key and 
+            selecting ML-KEM as the key algorithm for the new key pair. The result is basically the same as using 
+            the keytool commands described in <a href="https://openjdk.org/jeps/496">JEP 496</a>.
+        </p>
+        <p>
+            This feature was contributed by AnassBousseaden (ML-DSA) and jonwltn (SLH-DSA and ML-KEM).
         </p>
     </div>
     <div class="col-md-6">
@@ -222,6 +229,7 @@ title: KeyStore Explorer - Release Notes
                 <li>SignedCertificateTimestampList/SCTs (OID 1.3.6.1.4.1.11129.2.4.2)</li>
                 <li>MS Application Policies (OID 1.3.6.1.4.1.311.21.10)</li>
                 <li>MS NTDS CA Security (OID 1.3.6.1.4.1.311.25.2)</li>
+                <li>MasaURL (OID 1.3.6.1.5.5.7.1.32) defined in RFC 8995</li>
             </ul>
         </p>   
         <p>
@@ -339,6 +347,10 @@ title: KeyStore Explorer - Release Notes
             <li>Separators have been added to create a grouping of the buttons, because some dialogs have up to six action
                 buttons and quickly finding the right one becomes challenging.
             </li>
+            <li>
+                The certificate extensions viewer now has a "Copy" button for putting the extension value into the system clipboard
+                (contributed by Jairo Graterón).
+            </li>
         </ul>
         </p>
     </div>
@@ -389,6 +401,14 @@ title: KeyStore Explorer - Release Notes
                 <li>Added password manager KDF iteration settings in preferences</li>
                 <li>Added progress dialogs for de-/encrypting keystore passwords</li>
                 <li>Allow leading spaces in PEM data for "Examine Clipboard" (contributed by tenpertur)</li>
+                <li>In CRL view the serial numbers of the revoked certificates are now displayed in a monospace font (contributed by Jairo Graterón)</li>
+                <li>Use of "strong" secure random implementations: in the java.security file the 
+                    parameter "securerandom.strongAlgorithms" can be set to define a list of known strong implementations,
+                    KSE uses this setting now and allows to select the previous behaviour in the "User Interface" section
+                    of the preferences dialog (contributed by beth-soptim).
+                </li>
+                <li>Added "Description" and "Role" attributes in DN chooser (contributed by Jairo Graterón)</li>
+                <li>Improved CRL revocation reason text format in CRL view (contributed by The-Lum)</li>
             </ul>
         </p> 
     </div>
