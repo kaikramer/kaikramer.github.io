@@ -26,24 +26,24 @@ title: KeyStore Explorer - Release Notes
         </p>    
         <p>
         The verification details are very similar to the output of the "jarsigner -verify" command (see for example 
-        <a href="https://docs.oracle.com/en/java/javase/17/docs/specs/man/jarsigner.html#example-of-verifying-a-signed-jar-file">jarsigner - example of verifying a signed jar file</a>).
+        <a href="https://docs.oracle.com/en/java/javase/17/docs/specs/man/jarsigner.html#example-of-verifying-a-signed-jar-file">jarsigner - Example of Verifying a Signed JAR File</a>).
         </p>
         <p>
             The details include:
             <ul>
                 <li>the overall signature status</li>
                 <li>for each file in the JAR the name, size, date and verification flags</li>
-                <li>a button to show further details about the signatures (a jar can have multiple signatures)</li>
+                <li>a button to show further details about the signatures (a JAR can have multiple signatures)</li>
                 <li>a button to show the certificates</li>
             </ul> 
             <p>
             The meaning of the verification flags are probably already known from jarsigner but here is a short explanation
             (the same explanation is displayed in the tooltip when you hover over the flags column header):
-            </p>
-            <p>
-            s = signature was verified<br/>
-            m = entry is listed in manifest<br/>
-            k = at least one certificate was found in keystore<br/>
+            <ul>
+                <li>s = signature was verified</li>
+                <li>m = entry is listed in manifest</li>
+                <li>k = at least one certificate was found in keystore</li>
+            </ul>
             </p>
         </p>
         </p>
@@ -388,7 +388,7 @@ title: KeyStore Explorer - Release Notes
                 <li>JWS verification with Ed25519 public keys (contributed by jonwltn)</li>
                 <li>Only show secret key algorithms based on keystore support (contributed by jonwltn)</li>
                 <li>Implemented case-sensitive alias by key store type (contributed by jonwltn)</li>
-                <li>Improved display of ':' in Extension viewe (contributed by The-Lum)</li>
+                <li>Improved display of ':' in Extension viewer (contributed by The-Lum)</li>
                 <li>Improved display of '=' and fixed 'IMPLICIT:' in ASN.1 viewer (contributed by The-Lum)</li>
                 <li>Added CertificatePolicies OIDs of CA/Browser Forum (contributed by The-Lum)</li>
                 <li>Added CertificatePolicy OIDs of Google (contributed by The-Lum)</li>
@@ -434,7 +434,7 @@ title: KeyStore Explorer - Release Notes
                 <li>Fixed AccessDenied error when signing JAR file using output file prefix or suffix (contributed by jonwltn)</li>
                 <li>Fixed certificate chain validation (contributed by Jairo Graterón)</li>
                 <li>Fixed CRL verification when using BC provider (contributed by jonwltn)</li>
-                <li>Fixed duplicate shortcut Ctrl-Alt-S (contributed by The-Lum)</li>
+                <li>Fixed duplicate shortcut Ctrl+Alt+S (contributed by The-Lum)</li>
                 <li>Fixed KeyStore table translations (contributed by jonwltn)</li>
                 <li>Fixed lost focus on Secret Key entry after viewing details (contributed by jonwltn)</li>
                 <li>Fixed key stores not being updated after expiry warning days change (contributed by jonwltn)</li>
